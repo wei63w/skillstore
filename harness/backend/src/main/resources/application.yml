@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: agent-dev-harness
+server:
+  port: 8080
+harness:
+  runtime:
+    root: ../runtime
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

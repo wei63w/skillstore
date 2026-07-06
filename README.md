@@ -76,6 +76,7 @@ README.md                       # 项目入口、开发流程和变更记录
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-06 | 实现 | Agent Dev Harness | 实现 Java Spring Boot 后端骨架、模块注册、任务状态、执行事件、人工门禁、工具插件、报告、文档、Docker/脚本占位和运行产物目录 | 已按 TDD 先红后绿；`mvn verify -Pverification` 通过 14 个测试；README 和 Harness 文档脚本检查通过；未发现密钥模式命中 | 准备随本次实现提交推送到 `origin/master` |
 | 2026-07-06 | 任务 | Agent Dev Harness | 生成工程骨架实现任务清单，按 Setup、Foundational、US1、US2、US3 和 Polish 分阶段拆解 | 已生成可执行任务；任务包含测试、文档、质量门禁、README 与 GitHub 提交要求 | 已提交并推送：`5bdf710` |
 | 2026-07-06 | 计划 | Agent Dev Harness | 基于 Java Spring Boot + Vue 3/React 技术栈生成工程骨架实施计划、研究记录、数据模型、REST/CLI 合约和 quickstart | 已完成计划产物；无宪章违规；前端控制台后置为可选扩展 | 随本次提交推送到 `origin/master` |
 | 2026-07-06 | 规格 | Agent Dev Harness | 创建“初始化 Agent Dev Harness 工程骨架”功能规格、质量清单和 Spec Kit feature 指针 | 已完成规格质量清单；无待澄清标记 | 随本次提交推送到 `origin/master` |

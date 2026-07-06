@@ -22,16 +22,16 @@
 
 **Purpose**: 初始化 Java Spring Boot 后端工程、Harness 顶层目录、运行产物目录和基础文档。
 
-- [ ] T001 Create Harness root directories in `harness/backend/`, `harness/console/`, `harness/runtime/`, `harness/runtime/tasks/`, `harness/runtime/logs/`, `harness/runtime/context/`, `harness/runtime/artifacts/`, `harness/runtime/reports/`, `infra/docker/`, and `infra/scripts/`
-- [ ] T002 Initialize Maven Spring Boot project descriptor in `harness/backend/pom.xml`
-- [ ] T003 Create Spring Boot application entry class in `harness/backend/src/main/java/com/openclaw/harness/AgentHarnessApplication.java`
-- [ ] T004 [P] Create base application configuration in `harness/backend/src/main/resources/application.yml`
-- [ ] T005 [P] Create test application configuration in `harness/backend/src/test/resources/application-test.yml`
-- [ ] T006 [P] Create Harness backend README in `harness/README.md`
-- [ ] T007 [P] Create console placeholder README in `harness/console/README.md`
-- [ ] T008 [P] Create runtime artifact policy document in `harness/backend/docs/runtime-artifacts.md`
-- [ ] T009 [P] Create Docker placeholder file in `infra/docker/harness-backend.Dockerfile`
-- [ ] T010 [P] Create local smoke script placeholder in `infra/scripts/harness-smoke.ps1`
+- [X] T001 Create Harness root directories in `harness/backend/`, `harness/console/`, `harness/runtime/`, `harness/runtime/tasks/`, `harness/runtime/logs/`, `harness/runtime/context/`, `harness/runtime/artifacts/`, `harness/runtime/reports/`, `infra/docker/`, and `infra/scripts/`
+- [X] T002 Initialize Maven Spring Boot project descriptor in `harness/backend/pom.xml`
+- [X] T003 Create Spring Boot application entry class in `harness/backend/src/main/java/com/openclaw/harness/AgentHarnessApplication.java`
+- [X] T004 [P] Create base application configuration in `harness/backend/src/main/resources/application.yml`
+- [X] T005 [P] Create test application configuration in `harness/backend/src/test/resources/application-test.yml`
+- [X] T006 [P] Create Harness backend README in `harness/README.md`
+- [X] T007 [P] Create console placeholder README in `harness/console/README.md`
+- [X] T008 [P] Create runtime artifact policy document in `harness/backend/docs/runtime-artifacts.md`
+- [X] T009 [P] Create Docker placeholder file in `infra/docker/harness-backend.Dockerfile`
+- [X] T010 [P] Create local smoke script placeholder in `infra/scripts/harness-smoke.ps1`
 
 ---
 
@@ -41,20 +41,20 @@
 
 **CRITICAL**: 本阶段完成前，不得开始用户故事实现。
 
-- [ ] T011 Create package structure under `harness/backend/src/main/java/com/openclaw/harness/agents/`, `api/`, `scheduler/`, `state/`, `context/`, `tools/`, `gates/`, `observability/`, `reports/`, `common/`, and `config/`
-- [ ] T012 [P] Create unified API response model in `harness/backend/src/main/java/com/openclaw/harness/common/ApiResponse.java`
-- [ ] T013 [P] Create global exception handler in `harness/backend/src/main/java/com/openclaw/harness/common/GlobalExceptionHandler.java`
-- [ ] T014 [P] Create validation error response model in `harness/backend/src/main/java/com/openclaw/harness/common/ValidationError.java`
-- [ ] T015 [P] Create task status enum in `harness/backend/src/main/java/com/openclaw/harness/state/TaskStatus.java`
-- [ ] T016 [P] Create execution result enum in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionResult.java`
-- [ ] T017 [P] Create risk level enum in `harness/backend/src/main/java/com/openclaw/harness/gates/RiskLevel.java`
-- [ ] T018 [P] Create human gate status enum in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGateStatus.java`
-- [ ] T019 Create structured logging configuration in `harness/backend/src/main/java/com/openclaw/harness/config/ObservabilityConfig.java`
-- [ ] T020 Create runtime path configuration in `harness/backend/src/main/java/com/openclaw/harness/config/RuntimePathProperties.java`
-- [ ] T021 Create runtime directory initializer in `harness/backend/src/main/java/com/openclaw/harness/config/RuntimeDirectoryInitializer.java`
-- [ ] T022 [P] Create base Spring context smoke test in `harness/backend/src/test/java/com/openclaw/harness/AgentHarnessApplicationTests.java`
-- [ ] T023 [P] Create dependency scan documentation placeholder in `harness/backend/docs/security-scan.md`
-- [ ] T024 [P] Create coverage report documentation placeholder in `harness/backend/docs/test-coverage.md`
+- [X] T011 Create package structure under `harness/backend/src/main/java/com/openclaw/harness/agents/`, `api/`, `scheduler/`, `state/`, `context/`, `tools/`, `gates/`, `observability/`, `reports/`, `common/`, and `config/`
+- [X] T012 [P] Create unified API response model in `harness/backend/src/main/java/com/openclaw/harness/common/ApiResponse.java`
+- [X] T013 [P] Create global exception handler in `harness/backend/src/main/java/com/openclaw/harness/common/GlobalExceptionHandler.java`
+- [X] T014 [P] Create validation error response model in `harness/backend/src/main/java/com/openclaw/harness/common/ValidationError.java`
+- [X] T015 [P] Create task status enum in `harness/backend/src/main/java/com/openclaw/harness/state/TaskStatus.java`
+- [X] T016 [P] Create execution result enum in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionResult.java`
+- [X] T017 [P] Create risk level enum in `harness/backend/src/main/java/com/openclaw/harness/gates/RiskLevel.java`
+- [X] T018 [P] Create human gate status enum in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGateStatus.java`
+- [X] T019 Create structured logging configuration in `harness/backend/src/main/java/com/openclaw/harness/config/ObservabilityConfig.java`
+- [X] T020 Create runtime path configuration in `harness/backend/src/main/java/com/openclaw/harness/config/RuntimePathProperties.java`
+- [X] T021 Create runtime directory initializer in `harness/backend/src/main/java/com/openclaw/harness/config/RuntimeDirectoryInitializer.java`
+- [X] T022 [P] Create base Spring context smoke test in `harness/backend/src/test/java/com/openclaw/harness/AgentHarnessApplicationTests.java`
+- [X] T023 [P] Create dependency scan documentation placeholder in `harness/backend/docs/security-scan.md`
+- [X] T024 [P] Create coverage report documentation placeholder in `harness/backend/docs/test-coverage.md`
 
 **Checkpoint**: Spring Boot 工程可加载，公共模型、配置和运行产物目录约定可供所有故事使用。
 
@@ -68,21 +68,21 @@
 
 ### Tests for User Story 1
 
-- [ ] T025 [P] [US1] Create health endpoint integration test in `harness/backend/src/test/java/com/openclaw/harness/api/HealthControllerTest.java`
-- [ ] T026 [P] [US1] Create module registry unit test in `harness/backend/src/test/java/com/openclaw/harness/agents/AgentModuleRegistryTest.java`
-- [ ] T027 [P] [US1] Create documentation boundary check script in `infra/scripts/check-harness-docs.ps1`
+- [X] T025 [P] [US1] Create health endpoint integration test in `harness/backend/src/test/java/com/openclaw/harness/api/HealthControllerTest.java`
+- [X] T026 [P] [US1] Create module registry unit test in `harness/backend/src/test/java/com/openclaw/harness/agents/AgentModuleRegistryTest.java`
+- [X] T027 [P] [US1] Create documentation boundary check script in `infra/scripts/check-harness-docs.ps1`
 
 ### Implementation for User Story 1
 
-- [ ] T028 [P] [US1] Create agent module descriptor model in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleDescriptor.java`
-- [ ] T029 [P] [US1] Create agent module status enum in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleStatus.java`
-- [ ] T030 [US1] Create agent module registry service in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleRegistry.java`
-- [ ] T031 [US1] Register planning, coding, testing, build-deploy, and review module placeholders in `harness/backend/src/main/java/com/openclaw/harness/agents/DefaultAgentModules.java`
-- [ ] T032 [US1] Create health controller in `harness/backend/src/main/java/com/openclaw/harness/api/HealthController.java`
-- [ ] T033 [US1] Create module listing controller in `harness/backend/src/main/java/com/openclaw/harness/api/AgentModuleController.java`
-- [ ] T034 [US1] Update Harness README with module boundary and startup guidance in `harness/README.md`
-- [ ] T035 [US1] Update root README development log for US1 completion in `README.md`
-- [ ] T036 [US1] Commit US1 changes to GitHub with message `[harness] 新增：工程入口与模块边界`
+- [X] T028 [P] [US1] Create agent module descriptor model in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleDescriptor.java`
+- [X] T029 [P] [US1] Create agent module status enum in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleStatus.java`
+- [X] T030 [US1] Create agent module registry service in `harness/backend/src/main/java/com/openclaw/harness/agents/AgentModuleRegistry.java`
+- [X] T031 [US1] Register planning, coding, testing, build-deploy, and review module placeholders in `harness/backend/src/main/java/com/openclaw/harness/agents/DefaultAgentModules.java`
+- [X] T032 [US1] Create health controller in `harness/backend/src/main/java/com/openclaw/harness/api/HealthController.java`
+- [X] T033 [US1] Create module listing controller in `harness/backend/src/main/java/com/openclaw/harness/api/AgentModuleController.java`
+- [X] T034 [US1] Update Harness README with module boundary and startup guidance in `harness/README.md`
+- [X] T035 [US1] Update root README development log for US1 completion in `README.md`
+- [X] T036 [US1] Commit US1 changes to GitHub with message `[harness] 新增：工程入口与模块边界`
 
 **Checkpoint**: US1 可独立演示：健康检查可用，模块占位可查询，文档说明 Harness 与 Skill 商店隔离。
 
@@ -96,37 +96,37 @@
 
 ### Tests for User Story 2
 
-- [ ] T037 [P] [US2] Create task service unit test in `harness/backend/src/test/java/com/openclaw/harness/state/HarnessTaskServiceTest.java`
-- [ ] T038 [P] [US2] Create task REST contract integration test in `harness/backend/src/test/java/com/openclaw/harness/api/HarnessTaskControllerTest.java`
-- [ ] T039 [P] [US2] Create execution event service unit test in `harness/backend/src/test/java/com/openclaw/harness/observability/ExecutionEventServiceTest.java`
-- [ ] T040 [P] [US2] Create human gate service unit test in `harness/backend/src/test/java/com/openclaw/harness/gates/HumanGateServiceTest.java`
-- [ ] T041 [P] [US2] Create tool plugin registry unit test in `harness/backend/src/test/java/com/openclaw/harness/tools/ToolPluginRegistryTest.java`
-- [ ] T042 [P] [US2] Create CLI contract smoke test placeholder in `harness/backend/src/test/java/com/openclaw/harness/cli/HarnessCliContractTest.java`
+- [X] T037 [P] [US2] Create task service unit test in `harness/backend/src/test/java/com/openclaw/harness/state/HarnessTaskServiceTest.java`
+- [X] T038 [P] [US2] Create task REST contract integration test in `harness/backend/src/test/java/com/openclaw/harness/api/HarnessTaskControllerTest.java`
+- [X] T039 [P] [US2] Create execution event service unit test in `harness/backend/src/test/java/com/openclaw/harness/observability/ExecutionEventServiceTest.java`
+- [X] T040 [P] [US2] Create human gate service unit test in `harness/backend/src/test/java/com/openclaw/harness/gates/HumanGateServiceTest.java`
+- [X] T041 [P] [US2] Create tool plugin registry unit test in `harness/backend/src/test/java/com/openclaw/harness/tools/ToolPluginRegistryTest.java`
+- [X] T042 [P] [US2] Create CLI contract smoke test placeholder in `harness/backend/src/test/java/com/openclaw/harness/cli/HarnessCliContractTest.java`
 
 ### Implementation for User Story 2
 
-- [ ] T043 [P] [US2] Create harness task model in `harness/backend/src/main/java/com/openclaw/harness/state/HarnessTask.java`
-- [ ] T044 [P] [US2] Create create task request DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/CreateTaskRequest.java`
-- [ ] T045 [P] [US2] Create task response DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/TaskResponse.java`
-- [ ] T046 [US2] Create in-memory task repository in `harness/backend/src/main/java/com/openclaw/harness/state/InMemoryHarnessTaskRepository.java`
-- [ ] T047 [US2] Create task service in `harness/backend/src/main/java/com/openclaw/harness/state/HarnessTaskService.java`
-- [ ] T048 [US2] Create task controller for create and status endpoints in `harness/backend/src/main/java/com/openclaw/harness/api/HarnessTaskController.java`
-- [ ] T049 [P] [US2] Create execution event model in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionEvent.java`
-- [ ] T050 [US2] Create execution event service in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionEventService.java`
-- [ ] T051 [US2] Create task event controller in `harness/backend/src/main/java/com/openclaw/harness/api/TaskEventController.java`
-- [ ] T052 [P] [US2] Create context snapshot model in `harness/backend/src/main/java/com/openclaw/harness/context/ContextSnapshot.java`
-- [ ] T053 [P] [US2] Create task artifact model in `harness/backend/src/main/java/com/openclaw/harness/reports/TaskArtifact.java`
-- [ ] T054 [P] [US2] Create human gate model in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGate.java`
-- [ ] T055 [P] [US2] Create gate decision request DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/GateDecisionRequest.java`
-- [ ] T056 [P] [US2] Create human gate response DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/HumanGateResponse.java`
-- [ ] T057 [US2] Create human gate service in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGateService.java`
-- [ ] T058 [US2] Create human gate controller in `harness/backend/src/main/java/com/openclaw/harness/api/HumanGateController.java`
-- [ ] T059 [P] [US2] Create tool plugin descriptor in `harness/backend/src/main/java/com/openclaw/harness/tools/ToolPluginDescriptor.java`
-- [ ] T060 [US2] Create tool plugin registry in `harness/backend/src/main/java/com/openclaw/harness/tools/ToolPluginRegistry.java`
-- [ ] T061 [US2] Create CLI command placeholder documentation in `harness/backend/docs/cli.md`
-- [ ] T062 [US2] Update Harness runtime artifact documentation in `harness/backend/docs/runtime-artifacts.md`
-- [ ] T063 [US2] Update root README development log for US2 completion in `README.md`
-- [ ] T064 [US2] Commit US2 changes to GitHub with message `[harness] 新增：长任务状态与门禁约定`
+- [X] T043 [P] [US2] Create harness task model in `harness/backend/src/main/java/com/openclaw/harness/state/HarnessTask.java`
+- [X] T044 [P] [US2] Create create task request DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/CreateTaskRequest.java`
+- [X] T045 [P] [US2] Create task response DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/TaskResponse.java`
+- [X] T046 [US2] Create in-memory task repository in `harness/backend/src/main/java/com/openclaw/harness/state/InMemoryHarnessTaskRepository.java`
+- [X] T047 [US2] Create task service in `harness/backend/src/main/java/com/openclaw/harness/state/HarnessTaskService.java`
+- [X] T048 [US2] Create task controller for create and status endpoints in `harness/backend/src/main/java/com/openclaw/harness/api/HarnessTaskController.java`
+- [X] T049 [P] [US2] Create execution event model in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionEvent.java`
+- [X] T050 [US2] Create execution event service in `harness/backend/src/main/java/com/openclaw/harness/observability/ExecutionEventService.java`
+- [X] T051 [US2] Create task event controller in `harness/backend/src/main/java/com/openclaw/harness/api/TaskEventController.java`
+- [X] T052 [P] [US2] Create context snapshot model in `harness/backend/src/main/java/com/openclaw/harness/context/ContextSnapshot.java`
+- [X] T053 [P] [US2] Create task artifact model in `harness/backend/src/main/java/com/openclaw/harness/reports/TaskArtifact.java`
+- [X] T054 [P] [US2] Create human gate model in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGate.java`
+- [X] T055 [P] [US2] Create gate decision request DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/GateDecisionRequest.java`
+- [X] T056 [P] [US2] Create human gate response DTO in `harness/backend/src/main/java/com/openclaw/harness/api/dto/HumanGateResponse.java`
+- [X] T057 [US2] Create human gate service in `harness/backend/src/main/java/com/openclaw/harness/gates/HumanGateService.java`
+- [X] T058 [US2] Create human gate controller in `harness/backend/src/main/java/com/openclaw/harness/api/HumanGateController.java`
+- [X] T059 [P] [US2] Create tool plugin descriptor in `harness/backend/src/main/java/com/openclaw/harness/tools/ToolPluginDescriptor.java`
+- [X] T060 [US2] Create tool plugin registry in `harness/backend/src/main/java/com/openclaw/harness/tools/ToolPluginRegistry.java`
+- [X] T061 [US2] Create CLI command placeholder documentation in `harness/backend/docs/cli.md`
+- [X] T062 [US2] Update Harness runtime artifact documentation in `harness/backend/docs/runtime-artifacts.md`
+- [X] T063 [US2] Update root README development log for US2 completion in `README.md`
+- [X] T064 [US2] Commit US2 changes to GitHub with message `[harness] 新增：长任务状态与门禁约定`
 
 **Checkpoint**: US2 可独立演示：任务、事件、门禁、工具插件和运行产物约定均可通过接口或文档验证。
 
@@ -140,22 +140,22 @@
 
 ### Tests for User Story 3
 
-- [ ] T065 [P] [US3] Create quickstart validation script test in `harness/backend/src/test/java/com/openclaw/harness/reports/QuickstartValidationTest.java`
-- [ ] T066 [P] [US3] Create report generation unit test in `harness/backend/src/test/java/com/openclaw/harness/reports/ExecutionReportServiceTest.java`
-- [ ] T067 [P] [US3] Create README development log check script in `infra/scripts/check-readme-log.ps1`
+- [X] T065 [P] [US3] Create quickstart validation script test in `harness/backend/src/test/java/com/openclaw/harness/reports/QuickstartValidationTest.java`
+- [X] T066 [P] [US3] Create report generation unit test in `harness/backend/src/test/java/com/openclaw/harness/reports/ExecutionReportServiceTest.java`
+- [X] T067 [P] [US3] Create README development log check script in `infra/scripts/check-readme-log.ps1`
 
 ### Implementation for User Story 3
 
-- [ ] T068 [P] [US3] Create execution report model in `harness/backend/src/main/java/com/openclaw/harness/reports/ExecutionReport.java`
-- [ ] T069 [US3] Create execution report service in `harness/backend/src/main/java/com/openclaw/harness/reports/ExecutionReportService.java`
-- [ ] T070 [US3] Create report controller in `harness/backend/src/main/java/com/openclaw/harness/api/ReportController.java`
-- [ ] T071 [US3] Create Maven profile for verification in `harness/backend/pom.xml`
-- [ ] T072 [US3] Create Docker build instructions in `infra/docker/README.md`
-- [ ] T073 [US3] Create smoke validation script in `infra/scripts/harness-smoke.ps1`
-- [ ] T074 [US3] Create README log validation script in `infra/scripts/check-readme-log.ps1`
-- [ ] T075 [US3] Update quickstart implementation notes in `specs/001-init-agent-harness/quickstart.md`
-- [ ] T076 [US3] Update root README development log for US3 completion in `README.md`
-- [ ] T077 [US3] Commit US3 changes to GitHub with message `[harness] 新增：质量门禁与验证流程`
+- [X] T068 [P] [US3] Create execution report model in `harness/backend/src/main/java/com/openclaw/harness/reports/ExecutionReport.java`
+- [X] T069 [US3] Create execution report service in `harness/backend/src/main/java/com/openclaw/harness/reports/ExecutionReportService.java`
+- [X] T070 [US3] Create report controller in `harness/backend/src/main/java/com/openclaw/harness/api/ReportController.java`
+- [X] T071 [US3] Create Maven profile for verification in `harness/backend/pom.xml`
+- [X] T072 [US3] Create Docker build instructions in `infra/docker/README.md`
+- [X] T073 [US3] Create smoke validation script in `infra/scripts/harness-smoke.ps1`
+- [X] T074 [US3] Create README log validation script in `infra/scripts/check-readme-log.ps1`
+- [X] T075 [US3] Update quickstart implementation notes in `specs/001-init-agent-harness/quickstart.md`
+- [X] T076 [US3] Update root README development log for US3 completion in `README.md`
+- [X] T077 [US3] Commit US3 changes to GitHub with message `[harness] 新增：质量门禁与验证流程`
 
 **Checkpoint**: US3 可独立演示：测试、报告、Docker、冒烟验证和 README/GitHub 记录流程均有可执行入口或明确占位。
 
@@ -165,16 +165,16 @@
 
 **Purpose**: 收敛文档、契约、测试、格式、扫描和发布前质量检查。
 
-- [ ] T078 [P] Validate REST contract alignment between `specs/001-init-agent-harness/contracts/openapi.yaml` and `harness/backend/src/main/java/com/openclaw/harness/api/`
-- [ ] T079 [P] Validate CLI contract alignment between `specs/001-init-agent-harness/contracts/cli-contract.md` and `harness/backend/docs/cli.md`
-- [ ] T080 Run backend unit and integration tests with `mvn test` from `harness/backend/pom.xml`
-- [ ] T081 Run backend verification profile with `mvn verify` from `harness/backend/pom.xml`
-- [ ] T082 [P] Run README development log validation using `infra/scripts/check-readme-log.ps1`
-- [ ] T083 [P] Run quickstart validation checklist against `specs/001-init-agent-harness/quickstart.md`
-- [ ] T084 [P] Review all generated documentation for Chinese-first compliance in `README.md`, `harness/README.md`, and `harness/backend/docs/`
-- [ ] T085 [P] Confirm no real secrets or server addresses exist in `harness/backend/src/main/resources/application.yml`
-- [ ] T086 Update root README final development log for the full Harness skeleton feature in `README.md`
-- [ ] T087 Commit final polish changes to GitHub with message `[harness] 完成：工程骨架初始化`
+- [X] T078 [P] Validate REST contract alignment between `specs/001-init-agent-harness/contracts/openapi.yaml` and `harness/backend/src/main/java/com/openclaw/harness/api/`
+- [X] T079 [P] Validate CLI contract alignment between `specs/001-init-agent-harness/contracts/cli-contract.md` and `harness/backend/docs/cli.md`
+- [X] T080 Run backend unit and integration tests with `mvn test` from `harness/backend/pom.xml`
+- [X] T081 Run backend verification profile with `mvn verify` from `harness/backend/pom.xml`
+- [X] T082 [P] Run README development log validation using `infra/scripts/check-readme-log.ps1`
+- [X] T083 [P] Run quickstart validation checklist against `specs/001-init-agent-harness/quickstart.md`
+- [X] T084 [P] Review all generated documentation for Chinese-first compliance in `README.md`, `harness/README.md`, and `harness/backend/docs/`
+- [X] T085 [P] Confirm no real secrets or server addresses exist in `harness/backend/src/main/resources/application.yml`
+- [X] T086 Update root README final development log for the full Harness skeleton feature in `README.md`
+- [X] T087 Commit final polish changes to GitHub with message `[harness] 完成：工程骨架初始化`
 
 ---
 
