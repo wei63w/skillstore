@@ -1,15 +1,12 @@
 <!--
 Sync Impact Report
-Version change: template -> 1.0.0
+Version change: 1.0.0 -> 1.1.0
 Modified principles:
-- template principle 1 -> I. Observability and Reproducible Delivery First
-- template principle 2 -> II. Minimal Human Intervention with Explicit Risk Gates
-- template principle 3 -> III. Layered Decoupling Between Harness and Business Apps
-- template principle 4 -> IV. Security Shift-Left and Sandboxed Agent Operations
-- template principle 5 -> V. Standardized Autonomous Automation Loop
+- V. Standardized Autonomous Automation Loop -> V. Standardized Autonomous Automation Loop and Incremental GitHub Records
 Added sections:
-- Platform Architecture and Delivery Scope
-- Engineering Standards and Quality Gates
+- Chinese-first documentation requirement in Engineering Standards and Governance
+- README initialization and change-log requirement
+- Small-feature GitHub commit requirement
 Removed sections:
 - None
 Templates requiring updates:
@@ -17,178 +14,145 @@ Templates requiring updates:
 - updated: .specify/templates/spec-template.md
 - updated: .specify/templates/tasks-template.md
 - not present: .specify/templates/commands/*.md
-- not present: README.md, docs/quickstart.md, AGENTS.md, CLAUDE.md
+- updated: README.md
 Follow-up TODOs:
 - None
 -->
 
-# AI Autonomous Development System + OpenClaw Skill Store Constitution
+# AI 自主开发系统 + OpenClaw Skill 商店项目宪章
 
 ## Core Principles
 
-### I. Observability and Reproducible Delivery First
+### I. 可观测与可复现交付优先
 
-Every autonomous development step MUST be persisted as structured, replayable
-evidence: agent actions, inputs, outputs, tool calls, code diffs, test logs,
-build records, deployment records, elapsed time, and validation results. Long
-running work MUST support interruption recovery, checkpoint resume, failure
-retry, and reconstruction of all intermediate artifacts including requirements,
-architecture notes, source code, reports, images, and deployment configuration.
-Any code, container image, database migration, or environment configuration that
-cannot be rebuilt from versioned inputs is non-compliant.
+每一个 AI 自主开发步骤都 MUST 持久化为结构化、可回放证据：Agent 行为、输入、
+输出、工具调用、代码差异、测试日志、构建记录、部署记录、耗时和校验结果。长运行
+任务 MUST 支持中断恢复、断点续跑、失败重试，并能重建需求、架构说明、源码、报告、
+图表和部署配置等中间产物。任何无法从版本化输入重建的代码、镜像、数据库迁移或
+环境配置均不合规。
 
-Rationale: the project exists to prove long-running autonomous software delivery;
-without durable traces and reproducible outputs, autonomy cannot be trusted,
-debugged, audited, or resumed.
+Rationale: 本项目要验证长周期 AI 自主交付能力；没有持久证据和可复现输出，自治
+流程就无法被信任、调试、审计或恢复。
 
-### II. Minimal Human Intervention with Explicit Risk Gates
+### II. 最小人工干预与显式风险门禁
 
-Agents MUST autonomously execute routine requirements analysis, architecture
-drafting, CRUD implementation, page rendering, test generation, formatting,
-container packaging, and static deployment. Agents MUST block and request human
-confirmation only for the following cases: ambiguous business requirements with
-materially different valid implementations, high-risk infrastructure changes
-such as opening ports or destroying online environments, payment/privacy/security
-configuration, permission or credential changes, and release-blocking defects or
-performance failures that remain unresolved after the allowed repair loop.
-Human-facing prompts MUST be structured with the item requiring confirmation,
-risk level, available options, and the consequence of each option.
+Agent MUST 自主完成常规需求分析、架构草案、CRUD 实现、页面渲染、测试生成、
+格式化、容器打包和静态部署。Agent 仅在以下场景 MUST 阻塞并请求人工确认：业务
+需求存在重大歧义且多种实现均合理，高风险基础设施变更，权限或凭据变更，支付、
+隐私或安全配置，三轮自动修复后仍无法解决的发布阻断缺陷或性能失败。面向人的
+确认问题 MUST 结构化展示待确认事项、风险等级、可选方案和各方案后果。
 
-Rationale: human engineers should guide ambiguous or risky decisions while the AI
-system owns the standard delivery flow end to end.
+Rationale: 人类工程师负责模糊或高风险决策，标准交付流程由 AI 系统端到端推进。
 
-### III. Layered Decoupling Between Harness and Business Apps
+### III. Harness 与业务应用分层解耦
 
-The Agent Dev Harness MUST remain a reusable development platform independent of
-the OpenClaw Skill Store. The harness may generate, test, package, and deploy the
-store, but MUST NOT embed store-specific business rules into core scheduling,
-context management, persistence, tool orchestration, or review modules. The
-required harness layers are planning agent, coding agent, testing agent,
-build/deploy agent, review agent, task-state persistence, context-window
-management, iterative self-checking, human-interaction hooks, and a tool plugin
-pool. Business application code MUST live in its own frontend, backend, database,
-cache, test, and deployment boundaries.
+Agent Dev Harness MUST 保持为可复用开发底座，独立于 OpenClaw Skill 商店业务。
+Harness 可以生成、测试、打包和部署商店应用，但 MUST NOT 把商店业务规则写入核心
+调度、上下文管理、持久化、工具编排或评审模块。Harness 的必要层包括规划 Agent、
+编码 Agent、测试 Agent、构建部署 Agent、评审 Agent、任务状态持久化、上下文窗口
+管理、循环自检、人工交互钩子和工具插件池。业务应用代码 MUST 拥有独立的前端、
+后端、数据库、缓存、测试和部署边界。
 
-Rationale: the Skill Store is the verification case, not the product boundary of
-the autonomous development platform.
+Rationale: Skill 商店是验证案例，不是自主开发平台的产品边界。
 
-### IV. Security Shift-Left and Sandboxed Agent Operations
+### IV. 安全左移与 Agent 沙箱操作
 
-Security checks MUST run during generation, review, build, and release. Generated
-code MUST include input validation, exception handling, unified response shapes,
-parameterized queries, authentication checks, RBAC enforcement, protected file
-upload handling, and safe frontend request/error handling. The system MUST never
-generate or commit plaintext secrets, database addresses, administrator
-credentials, real payment card storage, unsafe SQL concatenation, unaudited file
-execution, or privilege-escalating agent operations. Skill uploads MUST be
-scanned for malicious scripts, high-risk system calls, dependency vulnerabilities,
-file type violations, and size violations before listing. Agent operations MUST
-run in a permission sandbox, and high-risk operations MUST require the risk gate
-defined in Principle II.
+安全检查 MUST 贯穿生成、评审、构建和发布。生成代码 MUST 包含入参校验、异常处理、
+统一返回体、参数化查询、鉴权校验、RBAC 权限隔离、文件上传保护和前端统一请求/
+错误处理。系统 MUST NOT 生成或提交明文密钥、数据库地址、管理员凭据、真实银行卡
+存储、不安全 SQL 拼接、未经审计的文件执行或提权型 Agent 操作。Skill 包上架前
+MUST 扫描恶意脚本、高危系统调用、依赖漏洞、文件类型违规和大小违规。Agent 操作
+MUST 运行在权限沙箱内，高风险操作 MUST 经过原则 II 定义的风险门禁。
 
-Rationale: autonomous coding increases throughput only if security is built into
-the earliest possible step and enforced again at every promotion boundary.
+Rationale: 自主编码只有在安全约束前置并持续执行时，才会带来可信的效率提升。
 
-### V. Standardized Autonomous Automation Loop
+### V. 标准化自主闭环与增量 GitHub 记录
 
-Each feature MUST move through a documented loop: requirements, architecture,
-data model, API contract, implementation, unit tests, integration tests, frontend
-E2E tests when applicable, SAST and dependency scanning, formatting, container
-build, deployment, smoke validation, and report generation. Agents MUST self-check
-after each phase and automatically rework failures up to three repair rounds
-before requesting human confirmation. Unit coverage below 80%, high-risk security
-findings, failed core E2E flows, or unreconciled performance baselines MUST block
-packaging and deployment.
+每个功能 MUST 经过文档化闭环：需求、架构、数据模型、API 契约、实现、单元测试、
+集成测试、适用时的前端 E2E、SAST、依赖扫描、格式化、容器构建、部署、冒烟验证
+和报告生成。Agent MUST 在每阶段后自检，并在失败时自动返工最多三轮；仍不达标时
+MUST 请求人工确认。单元覆盖率低于 80%、高危安全问题、核心 E2E 失败或性能基线
+未达标 MUST 阻断打包和部署。
 
-Rationale: a repeatable quality gate turns AI output into an auditable delivery
-pipeline instead of an unbounded code generation session.
+每完成一个可独立验证的小功能、开发修改或修复，MUST 更新 README 的开发记录，
+并 MUST 提交到 GitHub 远程仓库。提交粒度 MUST 对应一个清晰的小功能或修复，提交
+信息 MUST 使用项目规范格式，例如 `[模块] 动作：内容`。如果当前环境尚未初始化 Git
+或尚未配置 GitHub 远程仓库，MUST 在 README 记录该阻塞原因，并在仓库可用后补交。
+
+Rationale: 可回放日志说明 Agent 做了什么，增量提交和 README 记录说明项目为什么
+这样演进，二者共同支撑长期自治开发。
 
 ## Platform Architecture and Delivery Scope
 
-The project has three governed deliverables:
+项目有三类受治理交付物：
 
-1. Agent Dev Harness Demo: layered agent scheduler, long-task persistence,
-   checkpoint resume, context compression, plugin tool pool, human confirmation
-   hooks, code formatting, test generation, SAST, dependency scanning, Docker
-   build, cloud deployment integration, Git integration, system tests, reports,
-   and operator documentation.
-2. OpenClaw Skill Store Web Demo: buyer frontend, creator console, platform admin
-   console, skill file storage and distribution, dependency/version management,
-   sandbox permission detection, payment split simulation, notifications, MySQL
-   initialization, Redis configuration, automated tests, Docker packaging,
-   one-command deployment, and full business documentation.
-3. Unified governance and standards: this constitution, feature specifications,
-   architecture documents, database ER diagrams, API documents, test reports,
-   deployment runbooks, and Mermaid diagrams that evolve with the codebase.
+1. Agent Dev Harness Demo：分层 Agent 调度、长任务持久化、断点续跑、上下文压缩、
+   工具插件池、人工确认钩子、代码格式化、测试生成、SAST、依赖扫描、Docker 构建、
+   云部署集成、Git 集成、系统测试、报告和操作文档。
+2. OpenClaw Skill 商店 Web Demo：买家前台、创作者后台、平台管理后台、Skill 文件
+   存储分发、依赖和版本管理、沙箱权限检测、支付分账模拟、消息通知、MySQL 初始化、
+   Redis 配置、自动化测试、Docker 打包、一键部署和完整业务文档。
+3. 统一治理和规范：本宪章、功能规格、架构文档、数据库 ER 图、API 文档、测试报告、
+   部署运维手册、README 开发记录和随代码演进的 Mermaid 图表。
 
-Required baseline stack for the Skill Store is React or Vue 3 on the frontend,
-NestJS or Spring Boot on the backend, MySQL 8 for persistence, Redis for cache,
-Docker for packaging, and separated development, test, and demo environments.
-Source layout MUST separate controllers, services, data access, utilities,
-constants, configuration, tests, and deployment assets. Configuration, secrets,
-database settings, and environment-specific values MUST live in environment
-variables or a configuration center, never in application source.
+Skill 商店默认技术栈为 React 或 Vue 3 前端，NestJS 或 Spring Boot 后端，MySQL 8
+持久化，Redis 缓存，Docker 打包，并隔离开发、测试和演示环境。源码结构 MUST 分离
+控制器、服务层、数据访问层、工具类、常量、配置、测试和部署资产。配置、密钥、
+数据库设置和环境差异值 MUST 存入环境变量或配置中心，禁止写入业务源码。
 
-The Skill Store MUST include buyer registration/login, categorized marketplace
-home, vector search, skill detail pages, cart, simulated checkout, purchased
-skill download or online trial, order records, favorites, reviews, key
-management, creator onboarding, skill package upload, version management, pricing
-for free/buyout/subscription, creator analytics, settlement simulation, platform
-security review, takedown, category and homepage operations, account management,
-order management, and audit logs.
+Skill 商店 MUST 包含买家注册登录、分类首页、向量搜索、Skill 详情、购物车、模拟
+结算、已购 Skill 下载或在线试用、订单记录、收藏、评价、密钥管理、创作者入驻、
+Skill 包上传、版本管理、免费/买断/订阅定价、经营数据、收益对账模拟、平台安全
+审核、违规下架、类目和首页运营、账号管理、订单管理和审计日志。
 
 ## Engineering Standards and Quality Gates
 
-Naming MUST be semantic and consistent: classes use PascalCase, methods and
-variables use camelCase, and database tables and columns use snake_case.
-Meaningless abbreviations are forbidden. Public classes, public APIs, and complex
-business logic MUST have documentation comments, and critical flows MUST include
-short comments explaining the design intent.
+所有项目文档默认 MUST 使用中文，包括 README、需求、计划、任务、架构、数据库、
+API、测试、部署、变更记录和运维手册。仅在代码标识符、第三方协议、英文专有名词、
+外部 API 字段或用户明确要求时 MAY 使用英文。面向团队协作的文档 MUST 优先保证中文
+可读性，并保留必要英文技术名词以避免歧义。
 
-Testing is mandatory. Core service-layer methods target 100% unit coverage. All
-backend APIs MUST have integration coverage for validation, happy path, and
-error responses. Marketplace core flows including browsing, ordering, purchase,
-and skill publishing MUST have automated E2E coverage. Test reports MUST include
-coverage, executed cases, defect list, and vulnerability severity.
+README.md MUST 存在，并作为项目入口文档持续维护。README MUST 至少包含项目定位、
+交付物、目录结构、治理原则摘要、开发流程、运行方式占位、测试和部署占位、开发
+记录、GitHub 提交规范和待办事项。每次完成小功能、开发修改或修复时，README 的
+开发记录 MUST 追加日期、变更类型、影响范围、验证结果、提交状态和相关备注。
 
-Performance baselines are mandatory unless a feature explicitly documents why a
-baseline does not apply. Harness single-module code generation MUST target five
-minutes or less, checkpoint recovery MUST target 30 seconds or less, and the
-harness MUST support up to three independent concurrent development pipelines.
-Skill Store ordinary query APIs MUST target 200 ms or less, complex paginated
-lists MUST target 500 ms or less, a single instance MUST support 200 concurrent
-users without timeout, first screen render MUST target 1.5 seconds or less, and
-large skill packages MUST use bandwidth limiting, resumable download, and
-chunked storage where applicable. Homepage categories, popular skills, and skill
-details MUST use Redis caching.
+命名 MUST 语义化且一致：类名使用 PascalCase，方法和变量使用 camelCase，数据库表
+和字段使用 snake_case。禁止无意义缩写。公共类、公共接口和复杂业务逻辑 MUST 有
+文档注释，关键业务流程 MUST 添加简短注释说明设计意图。
 
-Deployment MUST be automated and containerized. Dockerfiles MUST use layered
-builds that minimize image size. Deployment automation MUST be able to pull an
-image, start containers, configure Nginx reverse proxy, apply HTTPS/SSL for
-networked demos, run smoke checks, and roll back to the previous image on
-failure. Logs MUST use a unified structured format and persistent storage with
-module and severity search.
+测试是强制要求。核心服务层方法目标为 100% 单元覆盖。所有后端 API MUST 覆盖入参
+校验、正常流程和异常返回的集成测试。商城核心流程，包括浏览、下单、购买和发布
+Skill，MUST 有自动化 E2E 覆盖。测试报告 MUST 包含覆盖率、执行用例、缺陷清单和
+漏洞等级。
+
+性能基线是强制要求，除非功能明确说明不适用。Harness 单模块代码生成 MUST 目标
+不超过 5 分钟，断点恢复 MUST 目标不超过 30 秒，Harness MUST 支持最多 3 条独立
+开发流水线并发。Skill 商店普通查询接口 MUST 目标不超过 200 ms，复杂分页列表 MUST
+目标不超过 500 ms，单实例 MUST 支持 200 并发用户无超时，首屏渲染 MUST 目标不超过
+1.5 秒，大型 Skill 包按需 MUST 支持限速、断点续传和分片存储。首页分类、热门 Skill
+和 Skill 详情 MUST 使用 Redis 缓存。
+
+部署 MUST 自动化并容器化。Dockerfile MUST 使用分层构建以减小镜像体积。部署自动化
+MUST 能拉取镜像、启动容器、配置 Nginx 反向代理、为联网演示启用 HTTPS/SSL、执行
+冒烟检查，并在失败时回滚到上一镜像。日志 MUST 使用统一结构化格式并持久化，支持
+按模块和等级检索。
 
 ## Governance
 
-This constitution supersedes conflicting feature plans, task lists, templates,
-and implementation habits. Every new specification and implementation plan MUST
-include an explicit constitution check covering observability, human risk gates,
-layered decoupling, security, tests, performance, deployment reproducibility, and
-documentation. Any non-compliance MUST be recorded with a justification,
-alternative considered, owner, and remediation date before implementation begins.
+本宪章优先于冲突的功能计划、任务列表、模板和临时开发习惯。每个新规格和实现计划
+MUST 显式检查可观测性、人工风险门禁、分层解耦、安全、测试、性能、部署可复现性、
+中文文档、README 记录和 GitHub 增量提交。不合规项 MUST 在实施前记录理由、备选
+方案、负责人和修复日期。
 
-Amendments MUST be made by updating this file, recording the impact report at
-the top of the file, synchronizing affected Spec Kit templates, and documenting
-the version change. Versioning follows semantic versioning: MAJOR for removing
-or redefining principles in a way that invalidates existing governance, MINOR
-for adding principles or materially expanding required sections, and PATCH for
-clarifications that preserve existing obligations.
+修订宪章 MUST 更新本文件，在文件顶部记录 Sync Impact Report，同步受影响的 Spec
+Kit 模板，并记录版本变化。版本遵循语义化版本：MAJOR 用于删除或重新定义原则且会
+使既有治理失效；MINOR 用于新增原则或实质扩展必需章节；PATCH 用于不改变义务的
+澄清和文字修正。
 
-Compliance review is required at three gates: before Phase 0 research, after
-Phase 1 design, and before deployment. Release is blocked by missing required
-documentation, missing persistent logs for agent actions, unit coverage below
-80%, high-risk security findings, failed core E2E flows, unapproved risk-gate
-operations, unreproducible build inputs, or failed deployment rollback checks.
+合规评审 MUST 在三个门禁执行：Phase 0 research 前、Phase 1 design 后、部署前。
+缺少必需文档、缺少 Agent 行为持久日志、README 未记录本次小功能、可用 GitHub
+远程仓库但未提交、单元覆盖率低于 80%、存在高危安全问题、核心 E2E 失败、未获批准
+的风险门禁操作、构建输入不可复现或部署回滚校验失败，均 MUST 阻断发布。
 
-**Version**: 1.0.0 | **Ratified**: 2026-07-06 | **Last Amended**: 2026-07-06
+**Version**: 1.1.0 | **Ratified**: 2026-07-06 | **Last Amended**: 2026-07-06

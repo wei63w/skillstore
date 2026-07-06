@@ -8,6 +8,9 @@
 
 **Input**: User description: "$ARGUMENTS"
 
+**Documentation Language**: 默认使用中文编写本文档。仅代码标识符、第三方协议、
+API 字段、英文专有名词或用户明确要求的内容使用英文。
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -115,6 +118,12 @@
   expectations relevant to the feature.
 - **CR-007**: Feature MUST state build, deployment, rollback, and documentation
   outputs required for the feature.
+- **CR-008**: Feature MUST state how README.md will be updated with the
+  development/change/fix record after each independently verifiable small
+  feature.
+- **CR-009**: Feature MUST state the expected GitHub commit scope and commit
+  message for each independently verifiable small feature or fix, or record why
+  GitHub submission is currently blocked.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -138,6 +147,9 @@
   have persisted structured logs with trace IDs"]
 - **SC-006**: [Quality gate metric, e.g., "Unit coverage is at least 80% and all
   high-risk security findings are resolved before deployment"]
+- **SC-007**: [Documentation metric, e.g., "README development log includes the
+  date, type, scope, verification result, and GitHub submission status for this
+  change"]
 
 ## Assumptions
 

@@ -10,6 +10,10 @@
 
 [Extract from feature spec: primary requirement + technical approach from research]
 
+**Documentation Language**: All generated project documents default to Chinese.
+Use English only for code identifiers, third-party protocol names, API fields, or
+when the feature explicitly requires it.
+
 ## Technical Context
 
 <!--
@@ -66,6 +70,9 @@ owner, and remediation date.
   smoke checks, persistent logs, and rollback behavior are specified.
 - **Documentation**: Requirements, architecture, ER/data model, API contracts,
   test report, deployment runbook, and Mermaid diagrams are planned.
+- **README & GitHub Records**: README.md update scope is identified, and each
+  independently verifiable small feature/fix has a planned GitHub commit with
+  commit message following `[module] action: content`.
 
 ## Project Structure
 

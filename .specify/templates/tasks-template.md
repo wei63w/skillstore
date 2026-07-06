@@ -9,6 +9,10 @@ description: "Task list template for feature implementation"
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
+**Documentation Language**: Generated task files and project documents default to
+Chinese. Use English only for code identifiers, third-party protocol names, API
+fields, or explicitly requested content.
+
 **Tests**: Tests are MANDATORY unless the feature specification explicitly marks a
 test class not applicable. Include unit, integration, E2E where applicable, SAST,
 dependency scanning, coverage reporting, and smoke validation tasks.
@@ -56,6 +60,8 @@ dependency scanning, coverage reporting, and smoke validation tasks.
 - [ ] T003 [P] Configure linting and formatting tools
 - [ ] T003A [P] Configure structured logging, trace IDs, and artifact retention
 - [ ] T003B [P] Configure SAST, dependency scanning, and coverage reporting
+- [ ] T003C Initialize or update README.md with Chinese project overview,
+  governance summary, development process, and development log
 
 ---
 
@@ -109,6 +115,10 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T016 [US1] Add validation and error handling
 - [ ] T017 [US1] Add logging for user story 1 operations
 - [ ] T017A [US1] Persist audit events, tool outputs, and replay artifacts required by the constitution
+- [ ] T017B [US1] Update README.md development log with date, change type,
+  scope, verification result, and GitHub submission status
+- [ ] T017C [US1] Commit this small feature/fix to GitHub using project commit
+  message format, or record the Git/GitHub blocker in README.md
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -132,6 +142,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T021 [US2] Implement [Service] in src/services/[service].py
 - [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
 - [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T023A [US2] Update README.md development log and commit this small
+  feature/fix to GitHub, or record the Git/GitHub blocker in README.md
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -154,6 +166,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
 - [ ] T027 [US3] Implement [Service] in src/services/[service].py
 - [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T028A [US3] Update README.md development log and commit this small
+  feature/fix to GitHub, or record the Git/GitHub blocker in README.md
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -176,6 +190,10 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Performance baseline validation report
 - [ ] TXXX [P] Docker build, smoke validation, deployment report, and rollback test
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX Confirm all documentation is Chinese-first and README.md has records
+  for every completed small feature/development change/fix
+- [ ] TXXX Confirm every completed small feature/development change/fix has a
+  GitHub commit, or README.md records the exact Git/GitHub blocker
 
 ---
 
@@ -273,3 +291,5 @@ With multiple developers:
 - Block packaging/deployment if coverage is below 80%, high-risk vulnerabilities
   remain, core E2E flows fail, required logs/artifacts are missing, or rollback
   validation has not passed
+- Block release if README.md lacks this change record or a configured GitHub
+  remote exists but the small feature/fix has not been committed and pushed
