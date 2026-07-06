@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: openclaw-skill-store
+  datasource:
+    url: ${SKILL_STORE_DB_URL:jdbc:mysql://localhost:3306/openclaw_skill_store}
+    username: ${SKILL_STORE_DB_USERNAME:openclaw}
+    password: ${SKILL_STORE_DB_PASSWORD:change-me}
+  data:
+    redis:
+      host: ${SKILL_STORE_REDIS_HOST:localhost}
+      port: ${SKILL_STORE_REDIS_PORT:6379}
+server:
+  port: 8081
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true

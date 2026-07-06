@@ -1,0 +1,14 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: openclaw_skill_store
+      MYSQL_USER: openclaw
+      MYSQL_PASSWORD: change-me
+      MYSQL_ROOT_PASSWORD: change-me-root
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis:7.4-alpine
+    ports:
+      - "6379:6379"

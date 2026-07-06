@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  color: #17202a;
+  background: #f6f8fb;
+  font-family: Inter, "Microsoft YaHei", system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.store-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+
+.store-shell__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  color: #ffffff;
+  background: #1f3a5f;
+}
+
+.store-shell__main {
+  padding: 32px;
+}
+
+.role-page {
+  max-width: 880px;
+  padding: 32px;
+  border: 1px solid #dde4ee;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.role-page__eyebrow {
+  margin: 0;
+  color: #4f6f52;
+  font-weight: 700;
+}
