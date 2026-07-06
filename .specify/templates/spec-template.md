@@ -11,6 +11,11 @@
 **Documentation Language**: 默认使用中文编写本文档。仅代码标识符、第三方协议、
 API 字段、英文专有名词或用户明确要求的内容使用英文。
 
+**Spec Kit Workflow Gate**: 本功能 MUST 按顺序执行 `specify` → `clarify` →
+`checklist` → `plan` → `tasks` → `implement`。本规格由 `specify` 创建或更新后，
+必须继续执行 `clarify` 并记录澄清结论，执行 `checklist` 并通过需求检查清单，然后
+才能进入技术计划和任务拆解。
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -124,6 +129,10 @@ API 字段、英文专有名词或用户明确要求的内容使用英文。
 - **CR-009**: Feature MUST state the expected GitHub commit scope and commit
   message for each independently verifiable small feature or fix, or record why
   GitHub submission is currently blocked.
+- **CR-010**: Feature MUST follow the Spec Kit workflow in order: specify,
+  clarify, checklist, plan, tasks, implement. Any skipped or blocked step MUST
+  be recorded with reason, alternative validation, and backfill plan before
+  implementation proceeds.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -150,6 +159,9 @@ API 字段、英文专有名词或用户明确要求的内容使用英文。
 - **SC-007**: [Documentation metric, e.g., "README development log includes the
   date, type, scope, verification result, and GitHub submission status for this
   change"]
+- **SC-008**: [Workflow metric, e.g., "Spec Kit artifacts exist for specify,
+  clarify, checklist, plan, tasks, and implement execution evidence before this
+  feature is marked complete"]
 
 ## Assumptions
 

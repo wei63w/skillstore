@@ -73,6 +73,10 @@ owner, and remediation date.
 - **README & GitHub Records**: README.md update scope is identified, and each
   independently verifiable small feature/fix has a planned GitHub commit with
   commit message following `[module] action: content`.
+- **Spec Kit Workflow Gate**: The feature has completed or scheduled the strict
+  workflow in order: specify, clarify, checklist, plan, tasks, implement. Any
+  skipped, blocked, or retroactively backfilled step is documented with reason,
+  alternative validation, and remediation plan.
 
 ## Project Structure
 
@@ -81,6 +85,8 @@ owner, and remediation date.
 ```text
 specs/[###-feature]/
 ├── plan.md              # This file (/speckit-plan command output)
+├── spec.md              # /speckit-specify command output
+├── checklists/          # /speckit-checklist command output
 ├── research.md          # Phase 0 output (/speckit-plan command)
 ├── data-model.md        # Phase 1 output (/speckit-plan command)
 ├── quickstart.md        # Phase 1 output (/speckit-plan command)
@@ -134,6 +140,17 @@ ios/ or android/
 
 **Structure Decision**: [Document the selected structure and reference the real
 directories captured above]
+
+## Spec Kit Workflow Evidence
+
+Record the current status of the mandatory workflow before implementation:
+
+- `specify`: [completed path or blocker]
+- `clarify`: [completed clarification summary/path, "no open questions", or blocker]
+- `checklist`: [completed checklist path and pass/fail status or blocker]
+- `plan`: [this plan path]
+- `tasks`: [planned tasks path, generated after this plan]
+- `implement`: [not started until tasks are generated]
 
 ## Complexity Tracking
 

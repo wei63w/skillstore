@@ -9,6 +9,12 @@ description: "Task list template for feature implementation"
 
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
+**Spec Kit Workflow Gate**: Tasks MUST NOT be generated until `specify`,
+`clarify`, `checklist`, and `plan` have run in order or a blocker/backfill record
+exists in the feature directory. `implement` MUST use this `tasks.md` as its
+execution source, update task status as work proceeds, and record final
+verification in README.md.
+
 **Documentation Language**: Generated task files and project documents default to
 Chinese. Use English only for code identifiers, third-party protocol names, API
 fields, or explicitly requested content.
@@ -62,6 +68,8 @@ dependency scanning, coverage reporting, and smoke validation tasks.
 - [ ] T003B [P] Configure SAST, dependency scanning, and coverage reporting
 - [ ] T003C Initialize or update README.md with Chinese project overview,
   governance summary, development process, and development log
+- [ ] T003D Confirm Spec Kit workflow evidence exists for specify, clarify,
+  checklist, plan, tasks, and implement gating in specs/[###-feature-name]/
 
 ---
 
@@ -194,6 +202,8 @@ Examples of foundational tasks (adjust based on your project):
   for every completed small feature/development change/fix
 - [ ] TXXX Confirm every completed small feature/development change/fix has a
   GitHub commit, or README.md records the exact Git/GitHub blocker
+- [ ] TXXX Confirm Spec Kit workflow was executed in strict order and any
+  skipped or retroactively backfilled step is explicitly recorded
 
 ---
 
@@ -293,3 +303,5 @@ With multiple developers:
   validation has not passed
 - Block release if README.md lacks this change record or a configured GitHub
   remote exists but the small feature/fix has not been committed and pushed
+- Block implementation if specify, clarify, checklist, plan, and tasks have not
+  been executed in order or explicitly documented as blocked/backfilled
