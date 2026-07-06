@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Agent Dev Harness Skeleton API
+  version: 0.1.0
+  description: |
+    Agent Dev Harness 第一阶段 REST 合约草案。该合约用于规划后续 Spring Boot
+    后端调度核心骨架，不代表本阶段已经完成真实实现。
+servers:
+  - url: http://localhost:8080
+    description: 本地开发占位地址
+paths:
+  /api/harness/health:
+    get:
+      summary: 查询 Harness 服务健康状态
+      responses:
+        "200":
+          description: 服务可用
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+  /api/harness/tasks:
+    post:
+      summary: 创建长运行开发任务
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTaskRequest"
+      responses:
+        "201":
+          description: 任务已创建
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskResponse"
+        "400":
+          description: 请求参数不合法
+  /api/harness/tasks/{taskId}:
+    get:
+      summary: 查询任务状态
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 返回任务状态
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaskResponse"
+        "404":
+          description: 任务不存在
+  /api/harness/tasks/{taskId}/events:
+    get:
+      summary: 查询任务执行步骤和结构化日志摘要
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 返回任务事件列表
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExecutionEvent"
+  /api/harness/gates/{gateId}/decision:
+    post:
+      summary: 提交人工确认门禁决策
+      parameters:
+        - name: gateId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GateDecisionRequest"
+      responses:
+        "200":
+          description: 门禁已处理
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HumanGateResponse"
+        "404":
+          description: 门禁不存在
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required: [status, timestamp]
+      properties:
+        status:
+          type: string
+          example: UP
+        timestamp:
+          type: string
+          format: date-time
+    CreateTaskRequest:
+      type: object
+      required: [title, objective]
+      properties:
+        title:
+          type: string
+          minLength: 1
+        objective:
+          type: string
+          minLength: 1
+        requestedBy:
+          type: string
+          description: 发起人或系统来源
+    TaskResponse:
+      type: object
+      required: [taskId, title, status, currentPhase]
+      properties:
+        taskId:
+          type: string
+        title:
+          type: string
+        status:
+          type: string
+          enum: [created, running, waitingHuman, failed, completed, rolledBack]
+        currentPhase:
+          type: string
+        checkpointRef:
+          type: string
+          nullable: true
+    ExecutionEvent:
+      type: object
+      required: [stepId, taskId, action, result, createdAt]
+      properties:
+        stepId:
+          type: string
+        taskId:
+          type: string
+        agentType:
+          type: string
+        action:
+          type: string
+        result:
+          type: string
+          enum: [success, failed, skipped]
+        createdAt:
+          type: string
+          format: date-time
+    GateDecisionRequest:
+      type: object
+      required: [decision, decidedBy]
+      properties:
+        decision:
+          type: string
+          enum: [approved, rejected, cancelled]
+        decidedBy:
+          type: string
+        comment:
+          type: string
+    HumanGateResponse:
+      type: object
+      required: [gateId, status, riskLevel, topic]
+      properties:
+        gateId:
+          type: string
+        status:
+          type: string
+          enum: [open, approved, rejected, cancelled]
+        riskLevel:
+          type: string
+          enum: [medium, high, critical]
+        topic:
+          type: string
