@@ -76,6 +76,7 @@ README.md                       # 项目入口、开发流程和变更记录
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-06 | 任务 | Agent Dev Harness | 生成工程骨架实现任务清单，按 Setup、Foundational、US1、US2、US3 和 Polish 分阶段拆解 | 已生成可执行任务；任务包含测试、文档、质量门禁、README 与 GitHub 提交要求 | 已本地提交；推送 `origin/master` 时 DNS 无法解析 `ssh.github.com`，需网络恢复后补推 |
 | 2026-07-06 | 计划 | Agent Dev Harness | 基于 Java Spring Boot + Vue 3/React 技术栈生成工程骨架实施计划、研究记录、数据模型、REST/CLI 合约和 quickstart | 已完成计划产物；无宪章违规；前端控制台后置为可选扩展 | 随本次提交推送到 `origin/master` |
 | 2026-07-06 | 规格 | Agent Dev Harness | 创建“初始化 Agent Dev Harness 工程骨架”功能规格、质量清单和 Spec Kit feature 指针 | 已完成规格质量清单；无待澄清标记 | 随本次提交推送到 `origin/master` |
 | 2026-07-06 | 初始化 | 文档治理 | 初始化 README，并将中文优先、README 记录、增量 GitHub 提交写入项目治理规则 | 已更新宪章和 Spec Kit 模板；已检查宪章占位符 | 已提交并推送：`ce0fe90` |
