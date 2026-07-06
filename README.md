@@ -116,6 +116,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 文档 | OpenClaw Skill 商店 | 根据已执行的商城骨架实现补齐 `002-init-skill-store` 的 plan、research、data-model、contracts、quickstart 和 tasks，并将已完成任务追溯标记 | `setup-plan.ps1` 与 `setup-tasks.ps1` 可识别当前功能目录和设计产物；等待提交前最终检查 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | OpenClaw Skill 商店 | 初始化 Java Spring Boot + Vue 3 前后端分离工程骨架，包含模块化单体后端、三角色前端入口、Flyway 基础表、Docker/Compose 占位、中文文档和安全说明 | 后端 `mvn test` 通过 8 个测试；前端 `npm test` 通过 5 个测试；`npm run build` 通过；`npm audit --audit-level=high` 零漏洞 | 随本次提交推送到 `origin/master` |
 | 2026-07-06 | 规格 | OpenClaw Skill 商店 | 创建“初始化 OpenClaw Skill 商店前后端工程骨架”功能规格、质量清单和 Spec Kit feature 指针 | 已完成规格质量清单；无待澄清标记 | 已提交并推送：`0a9661b` |
 | 2026-07-06 | 实现 | Agent Dev Harness | 实现 Java Spring Boot 后端骨架、模块注册、任务状态、执行事件、人工门禁、工具插件、报告、文档、Docker/脚本占位和运行产物目录 | 已按 TDD 先红后绿；`mvn verify -Pverification` 通过 14 个测试；README 和 Harness 文档脚本检查通过；未发现密钥模式命中 | 已提交并推送：`ba11a46` |

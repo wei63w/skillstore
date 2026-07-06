@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: OpenClaw Skill Store Skeleton API
+  version: 0.1.0
+  description: OpenClaw Skill 商店工程骨架阶段 API 契约。
+servers:
+  - url: /api/store
+paths:
+  /health:
+    get:
+      summary: 商城后端健康检查
+      responses:
+        "200":
+          description: 后端可响应
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+  /modules:
+    get:
+      summary: 查询商城模块目录
+      responses:
+        "200":
+          description: 返回买家、创作者、平台运营和公共能力模块
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/StoreModuleDescriptor"
+  /skills/featured:
+    get:
+      summary: 查询骨架阶段推荐 Skill 示例
+      responses:
+        "200":
+          description: 返回示例 Skill 列表
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/SkillSummary"
+  /skills:
+    post:
+      summary: 创建 Skill 示例草稿
+      description: 骨架阶段只验证入参校验和统一响应，不持久化真实商品。
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSkillRequest"
+      responses:
+        "201":
+          description: 返回草稿示例
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: object
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/SkillSummary"
+        "400":
+          description: 入参校验失败
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      required: [success, code, message]
+      properties:
+        success:
+          type: boolean
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          nullable: true
+    StoreModuleDescriptor:
+      type: object
+      required: [key, name, owner, status]
+      properties:
+        key:
+          type: string
+          example: buyer
+        name:
+          type: string
+          example: 买家前台
+        owner:
+          type: string
+          example: buyer
+        status:
+          type: string
+          example: skeleton
+        description:
+          type: string
+    SkillSummary:
+      type: object
+      required: [id, name, category, pricingMode, auditStatus]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        summary:
+          type: string
+        category:
+          type: string
+        pricingMode:
+          type: string
+          enum: [FREE, ONE_TIME, SUBSCRIPTION]
+        auditStatus:
+          type: string
+    CreateSkillRequest:
+      type: object
+      required: [name, summary, category, pricingMode]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        summary:
+          type: string
+          minLength: 1
+        category:
+          type: string
+          minLength: 1
+        pricingMode:
+          type: string
+          enum: [FREE, ONE_TIME, SUBSCRIPTION]

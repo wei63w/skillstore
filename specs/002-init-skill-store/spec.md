@@ -4,7 +4,7 @@
 
 **Created**: 2026-07-06
 
-**Status**: Draft
+**Status**: Implemented
 
 **Input**: User description: "初始化 OpenClaw Skill 商店前后端工程骨架"
 
@@ -160,8 +160,11 @@ API 字段、英文专有名词或用户明确要求的内容使用英文。
 
 ## Assumptions
 
-- 本次 `/speckit-specify` 只创建功能规格、质量清单和项目记录，不直接实现商城工程代码。
-- 前后端具体技术栈、版本和依赖将在 `/speckit-plan` 阶段基于项目长期规范确认。
-- 商城骨架实现将在后续 `/speckit-plan`、`/speckit-tasks` 和实现阶段继续推进。
+- 本规格最初由 `/speckit-specify` 创建；后续已根据实际执行内容补齐 `/speckit-plan`、
+  `/speckit-tasks` 和实现追溯记录。
+- 前后端具体技术栈已在计划与实现阶段确认为 Java 21 + Spring Boot 3.3.7 + Vue 3 +
+  TypeScript。
+- 商城骨架实现已完成；完整注册、下单、支付模拟、上传、审核和发布闭环将在后续功能中
+  继续推进。
 - 当前 GitHub 远程仓库可用于提交本次规格初始化记录。
 - 文档默认使用中文，必要英文术语保留原文以避免误解。
