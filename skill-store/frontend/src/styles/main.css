@@ -42,3 +42,69 @@ a {
   color: #4f6f52;
   font-weight: 700;
 }
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.flow-panel {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.flow-panel h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.flow-panel input,
+.flow-panel button {
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.flow-panel input {
+  width: 100%;
+  border: 1px solid #cfd8e3;
+  padding: 0 12px;
+}
+
+.flow-panel button {
+  border: 0;
+  padding: 0 14px;
+  color: #ffffff;
+  background: #1f6f78;
+  cursor: pointer;
+}
+
+.flow-panel button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.flow-panel ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow-panel li {
+  display: grid;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5ebf2;
+}
+
+.flow-message {
+  min-height: 24px;
+  color: #1f6f78;
+  font-weight: 700;
+}

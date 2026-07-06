@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: OpenClaw Skill Store Core Flow API
+  version: 0.2.0
+servers:
+  - url: /api/store
+paths:
+  /auth/register:
+    post:
+      summary: 注册演示用户
+  /auth/login:
+    post:
+      summary: 登录并返回演示 token
+  /creator/skills:
+    post:
+      summary: 创作者上传并提交 Skill 审核
+      security:
+        - demoToken: []
+  /admin/reviews/pending:
+    get:
+      summary: 管理员查询待审核 Skill
+      security:
+        - demoToken: []
+  /admin/reviews/{skillId}:
+    post:
+      summary: 管理员审核 Skill
+      security:
+        - demoToken: []
+  /market/skills:
+    get:
+      summary: 买家查询已上架 Skill
+  /orders:
+    post:
+      summary: 买家创建订单
+      security:
+        - demoToken: []
+  /orders/{orderId}/pay:
+    post:
+      summary: 买家执行模拟支付
+      security:
+        - demoToken: []
+  /buyer/purchases:
+    get:
+      summary: 买家查询已购 Skill
+      security:
+        - demoToken: []
+components:
+  securitySchemes:
+    demoToken:
+      type: apiKey
+      in: header
+      name: X-Store-Token

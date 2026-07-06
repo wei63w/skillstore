@@ -27,3 +27,4 @@ harness/runtime/reports/*
 !harness/runtime/context/.gitkeep
 !harness/runtime/artifacts/.gitkeep
 !harness/runtime/reports/.gitkeep
+skill-store/backend/runtime/uploads/*
