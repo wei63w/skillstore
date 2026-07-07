@@ -122,6 +122,8 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 实现 | Agent Dev Harness | 完成 CodeGenerationExecutor 多模型代码生成骨架：新增 `CodeModelProvider` 抽象、供应商注册表、受控 `PatchPlan`、路径白名单、敏感风险扫描、dry-run/apply、测试/文档候选和代码生成报告 | `mvn test` 通过 49 个后端测试；覆盖供应商选择、缺失供应商阻断、上下文加载、补丁计划、路径越界阻断、敏感内容阻断、dry-run 不落盘、apply 受控写入、REST 合约和报告持久化 | 随本次提交推送到 `origin/master` |
+| 2026-07-07 | 实现 | Agent Dev Harness | 新增 `/api/harness/code-generation` REST 入口，外部控制台或 Harness 流水线可提交 feature/spec/plan/tasks/contracts 触发受控代码生成 | 已新增 REST 合约测试和报告持久化测试；默认模型供应商为 `stub`，真实 OpenAI/Claude/Gemini/local provider 后续通过统一接口接入 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 任务 | Agent Dev Harness | 为“完善 Harness CodeGenerationExecutor”生成 `tasks.md`，拆分多模型抽象、补丁计划、安全应用、测试/文档候选和闭环报告任务 | 任务清单共 44 条；格式包含 checkbox、ID、Story 标签和明确文件路径；MVP 为 US1+US2 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 计划 | Agent Dev Harness | 为“完善 Harness CodeGenerationExecutor”生成技术计划、研究记录、数据模型、代码生成契约、REST 契约和 quickstart | 计划覆盖多供应商 `CodeModelProvider`、受控补丁计划、dry-run/apply、路径与敏感扫描；无宪章违规 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 澄清 | Agent Dev Harness | 对“完善 Harness CodeGenerationExecutor”补充澄清：自动生成可运行代码必须接入代码/推理型大模型并支持多家供应商，多模态模型后置 | 规格 Clarifications 已记录；requirements checklist 仍 16/16 通过；无待澄清标记 | 随本次提交推送到 `origin/master` |

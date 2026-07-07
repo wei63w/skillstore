@@ -9,6 +9,7 @@
 - 代码生成执行器第一版只写入受控 Markdown 产物，避免任意脚本生成高风险代码。
 - 测试执行器按 `unit`、`integration`、`frontend`、`build`、`security`、`all` profile 映射到受控命令。
 - 自动修复最多三轮，仍失败时通过人工门禁阻断。
+- CodeGenerationExecutor 必须通过 `CodeModelProvider` 生成结构化补丁计划，第一版使用本地 `stub` provider，后续可接入多家代码大模型。
 - 使用 `harness/runtime/` 持久化阶段状态、工具调用、上下文摘要、重试记录和报告。
 - 使用本地受控命令执行器调用 Maven、npm、Git 和安全扫描占位命令。
 - 高风险命令、凭据、支付、隐私、权限、端口开放或真实部署操作必须进入人工确认门禁。

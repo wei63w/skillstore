@@ -12,6 +12,27 @@
 Set-Location harness/backend
 mvn test
 mvn verify
+mvn dependency:tree -Dscope=runtime
+```
+
+2026-07-07 验证结果：以上命令均通过，`mvn test` 与 `mvn verify` 均执行 49 个后端测试，0 failures，0 errors，0 skipped。
+
+## REST Dry-run 示例
+
+```powershell
+$body = @{
+  requestId = "demo-codegen"
+  taskId = "task-demo"
+  featureDirectory = "C:\\Users\\Administrator\\Desktop\\skillstore\\specs\\005-code-generation-executor"
+  workspaceRoot = "C:\\Users\\Administrator\\Desktop\\skillstore"
+  mode = "dry_run"
+  modelProvider = "stub"
+} | ConvertTo-Json
+
+Invoke-RestMethod -Method Post `
+  -Uri "http://localhost:8080/api/harness/code-generation" `
+  -ContentType "application/json" `
+  -Body $body
 ```
 
 ## Dry-run 场景
@@ -42,3 +63,9 @@ mvn verify
 - 不写入文件。
 - 返回阻断原因。
 - 生成风险记录，后续接入人工确认门禁。
+
+## 供应商扩展
+
+- 当前默认 `modelProvider` 为 `stub`，用于本地可复现验证。
+- 后续接入 OpenAI、Claude、Gemini 或本地代码模型时，新增 `CodeModelProvider` 实现并注册为 Spring Bean。
+- 多模态模型后置，不阻塞当前代码生成主链路。

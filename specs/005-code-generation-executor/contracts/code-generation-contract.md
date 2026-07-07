@@ -38,3 +38,7 @@ generate(CodeGenerationRequest request) -> PatchApplyResult
 - 路径穿越。
 - `.env`、密钥、生产支付配置。
 - Harness 核心目录，除非另一个 Harness 功能规格明确授权。
+
+## 测试与文档候选
+
+第一版 provider 必须至少能在补丁计划中表达后端测试候选、前端文件候选和中文文档/README 候选。真实模型 provider 后续也必须保持同等结构化输出，不得只返回自由文本。
