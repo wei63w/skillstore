@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: Harness Code Generation API
+  version: 0.1.0
+paths:
+  /api/harness/code-generation:
+    post:
+      summary: 生成或应用代码补丁计划
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CodeGenerationRequest"
+      responses:
+        "200":
+          description: 返回补丁应用结果
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PatchApplyResult"
+components:
+  schemas:
+    CodeGenerationRequest:
+      type: object
+      required: [taskId, featureDirectory, workspaceRoot, mode, modelProvider]
+      properties:
+        taskId:
+          type: string
+        featureDirectory:
+          type: string
+        workspaceRoot:
+          type: string
+        mode:
+          type: string
+          enum: [dry_run, apply]
+        modelProvider:
+          type: string
+    PatchApplyResult:
+      type: object
+      required: [requestId, mode, applied, changedFiles, blockedReasons]
+      properties:
+        requestId:
+          type: string
+        mode:
+          type: string
+        applied:
+          type: boolean
+        changedFiles:
+          type: array
+          items:
+            type: string
+        blockedReasons:
+          type: array
+          items:
+            type: string
+        reportPath:
+          type: string

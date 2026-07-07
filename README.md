@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 计划 | Agent Dev Harness | 为“完善 Harness CodeGenerationExecutor”生成技术计划、研究记录、数据模型、代码生成契约、REST 契约和 quickstart | 计划覆盖多供应商 `CodeModelProvider`、受控补丁计划、dry-run/apply、路径与敏感扫描；无宪章违规 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 澄清 | Agent Dev Harness | 对“完善 Harness CodeGenerationExecutor”补充澄清：自动生成可运行代码必须接入代码/推理型大模型并支持多家供应商，多模态模型后置 | 规格 Clarifications 已记录；requirements checklist 仍 16/16 通过；无待澄清标记 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 规格 | Agent Dev Harness | 创建“完善 Harness CodeGenerationExecutor”规格，定义根据 spec/plan/tasks/contracts 生成或修改 skill-store 前后端代码、测试和文档的能力边界 | 规格质量清单 16/16 通过；无待澄清标记；等待后续 clarify/checklist/plan/tasks/implement | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 验证 | Agent Dev Harness | 完成“完善 Harness 自主开发能力”最终验证，补充测试、构建、安全/依赖检查、quickstart、契约覆盖和最终实现报告 | `mvn test` 通过 38 个测试；`mvn verify` 通过；`mvn dependency:tree -Dscope=runtime` 通过；REST/CLI 契约和中文文档检查通过；未发现商城业务规则写入 Harness 核心 | 随本次提交推送到 `origin/master` |
