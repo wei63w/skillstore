@@ -12,6 +12,12 @@
 
 **Spec Kit Workflow Gate**: 本功能 MUST 按顺序执行 `specify` → `clarify` → `checklist` → `plan` → `tasks` → `implement`。本规格由 `specify` 创建；后续必须继续执行 `clarify`、`checklist`、`plan`、`tasks` 和 `implement`。
 
+## Clarifications
+
+### Session 2026-07-07
+
+- No critical ambiguities detected worth formal clarification. 当前规格已明确本阶段优先完善交付物 A，OpenClaw Skill 商店作为后续由 A 自动生成或重建的目标业务案例；代码生成执行器先以可控模板、任务上下文和本地工具调用方式实现，真实云端破坏性操作、支付/隐私/权限/密钥等高风险动作均进入人工确认门禁。
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - 自动编排 Spec Kit 开发流水线 (Priority: P1)
