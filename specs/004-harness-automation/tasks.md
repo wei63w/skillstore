@@ -179,17 +179,17 @@
 
 **Purpose**: 验证全链路质量门禁、文档和交付证据。
 
-- [ ] T078 [P] Run `mvn test` and record results in `harness/backend/docs/test-coverage.md`
-- [ ] T079 [P] Run `mvn verify` and record build results in `harness/backend/docs/test-coverage.md`
-- [ ] T080 [P] Run dependency and security scan commands and update `harness/backend/docs/security-scan.md`
-- [ ] T081 [P] Run quickstart validation and update `specs/004-harness-automation/quickstart.md`
-- [ ] T082 Validate REST contract coverage against `specs/004-harness-automation/contracts/openapi.yaml`
-- [ ] T083 Validate CLI contract coverage against `specs/004-harness-automation/contracts/cli-contract.md`
-- [ ] T084 Confirm docs are Chinese-first in `harness/backend/docs/automation-workflow.md`
-- [ ] T085 Confirm no OpenClaw Skill Store business rules were added to `harness/backend/src/main/java/com/openclaw/harness/`
-- [ ] T086 Confirm README contains records for all completed small features in `README.md`
-- [ ] T087 Generate final implementation report in `harness/runtime/reports/004-harness-automation-report.md`
-- [ ] T088 Commit final validation to GitHub with message `[harness] 完成：自主开发能力验证报告`
+- [x] T078 [P] Run `mvn test` and record results in `harness/backend/docs/test-coverage.md`
+- [x] T079 [P] Run `mvn verify` and record build results in `harness/backend/docs/test-coverage.md`
+- [x] T080 [P] Run dependency and security scan commands and update `harness/backend/docs/security-scan.md`
+- [x] T081 [P] Run quickstart validation and update `specs/004-harness-automation/quickstart.md`
+- [x] T082 Validate REST contract coverage against `specs/004-harness-automation/contracts/openapi.yaml`
+- [x] T083 Validate CLI contract coverage against `specs/004-harness-automation/contracts/cli-contract.md`
+- [x] T084 Confirm docs are Chinese-first in `harness/backend/docs/automation-workflow.md`
+- [x] T085 Confirm no OpenClaw Skill Store business rules were added to `harness/backend/src/main/java/com/openclaw/harness/`
+- [x] T086 Confirm README contains records for all completed small features in `README.md`
+- [x] T087 Generate final implementation report in `harness/runtime/reports/004-harness-automation-report.md`
+- [x] T088 Commit final validation to GitHub with message `[harness] 完成：自主开发能力验证报告`
 
 ---
 

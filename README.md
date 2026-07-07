@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 验证 | Agent Dev Harness | 完成“完善 Harness 自主开发能力”最终验证，补充测试、构建、安全/依赖检查、quickstart、契约覆盖和最终实现报告 | `mvn test` 通过 38 个测试；`mvn verify` 通过；`mvn dependency:tree -Dscope=runtime` 通过；REST/CLI 契约和中文文档检查通过；未发现商城业务规则写入 Harness 核心 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成自主开发能力 US4：新增 README 开发记录更新器、提交前风险扫描、提交信息校验、Git 提交执行器和 git-submit REST API | `mvn test` 通过 38 个后端测试；覆盖 README 记录、敏感路径/明文密钥扫描、临时 Git 仓库本地提交和 git-submit REST 合约 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成自主开发能力 US3：新增工具调用记录、代码差异摘要、产物索引、交付报告模型/服务和 workflow 报告 REST API | `mvn test` 通过 34 个后端测试；覆盖工具调用持久化、产物索引、报告汇总和 report REST 合约 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成自主开发能力 US2：新增 `tasks.md` 解析、任务执行计划、受控代码生成、测试 profile 执行映射、三轮重试策略和失败升级人工门禁 | `mvn test` 通过 30 个后端测试；覆盖任务解析、代码生成产物、测试 profile、三轮重试上限、人工门禁升级和 run-tasks REST 合约 | 随本次提交推送到 `origin/master` |

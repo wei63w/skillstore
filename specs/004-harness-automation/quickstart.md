@@ -119,3 +119,12 @@ harness report generate --task-id "<任务ID>"
 - 中断恢复、失败重试、人工门禁和 GitHub 提交都有可审计记录。
 - 不含真实密钥、真实支付配置或真实云端破坏性操作。
 - OpenClaw Skill 商店仍保持为独立目标应用，不被写入 Harness 核心模块。
+
+## 2026-07-07 验证结果
+
+- 设计产物检查：`plan.md`、`research.md`、`data-model.md`、`contracts/openapi.yaml`、`contracts/cli-contract.md`、`tasks.md` 均存在。
+- 后端测试验证：`mvn test` 通过 38 个测试。
+- 构建验证：`mvn verify` 通过，并生成 Spring Boot jar 与 JaCoCo 报告。
+- 依赖检查：`mvn dependency:tree -Dscope=runtime` 通过。
+- 契约覆盖：REST 契约中的 workflow、run-tasks、tests、git-submit、report 端点均有实现或受控入口；CLI 契约已补充 git submit `--push false` 测试模式说明。
+- 边界检查：Harness 核心未加入 OpenClaw Skill 商店业务流程规则，仅保留通用支付/密钥/生产配置风险扫描文案。
