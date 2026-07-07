@@ -20,13 +20,13 @@
 
 **Purpose**: 为自主开发闭环创建包结构、配置和文档入口。
 
-- [ ] T001 Create workflow, executors, retry package directories under `harness/backend/src/main/java/com/openclaw/harness/`
-- [ ] T002 Create matching test package directories under `harness/backend/src/test/java/com/openclaw/harness/`
-- [ ] T003 [P] Add workflow runtime configuration properties in `harness/backend/src/main/java/com/openclaw/harness/config/WorkflowRuntimeProperties.java`
-- [ ] T004 [P] Add command execution documentation stub in `harness/backend/docs/automation-workflow.md`
-- [ ] T005 [P] Add automation quick validation script placeholder in `infra/scripts/harness-automation-smoke.ps1`
-- [ ] T006 Update Harness module overview for automation scope in `harness/README.md`
-- [ ] T007 Confirm Spec Kit workflow evidence for `specify`, `clarify`, `checklist`, `plan`, and `tasks` in `specs/004-harness-automation/tasks.md`
+- [x] T001 Create workflow, executors, retry package directories under `harness/backend/src/main/java/com/openclaw/harness/`
+- [x] T002 Create matching test package directories under `harness/backend/src/test/java/com/openclaw/harness/`
+- [x] T003 [P] Add workflow runtime configuration properties in `harness/backend/src/main/java/com/openclaw/harness/config/WorkflowRuntimeProperties.java`
+- [x] T004 [P] Add command execution documentation stub in `harness/backend/docs/automation-workflow.md`
+- [x] T005 [P] Add automation quick validation script placeholder in `infra/scripts/harness-automation-smoke.ps1`
+- [x] T006 Update Harness module overview for automation scope in `harness/README.md`
+- [x] T007 Confirm Spec Kit workflow evidence for `specify`, `clarify`, `checklist`, `plan`, and `tasks` in `specs/004-harness-automation/tasks.md`
 
 ---
 
@@ -36,20 +36,20 @@
 
 **CRITICAL**: 本阶段完成前不得开始任何 User Story 实现。
 
-- [ ] T008 Create SpecKitStage enum with strict stage order in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitStage.java`
-- [ ] T009 Create WorkflowStatus enum in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowStatus.java`
-- [ ] T010 [P] Create PhaseStatus enum in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseStatus.java`
-- [ ] T011 [P] Create DevelopmentTask record in `harness/backend/src/main/java/com/openclaw/harness/workflow/DevelopmentTask.java`
-- [ ] T012 [P] Create PhaseExecution record in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseExecution.java`
-- [ ] T013 [P] Create ToolInvocation record in `harness/backend/src/main/java/com/openclaw/harness/executors/ToolInvocation.java`
-- [ ] T014 [P] Create RetryAttempt record in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryAttempt.java`
-- [ ] T015 [P] Create GitDeliveryRecord record in `harness/backend/src/main/java/com/openclaw/harness/executors/GitDeliveryRecord.java`
-- [ ] T016 Implement JSON file persistence helper for runtime artifacts in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowStateStore.java`
-- [ ] T017 Implement command result model in `harness/backend/src/main/java/com/openclaw/harness/executors/CommandResult.java`
-- [ ] T018 Implement safe command executor with working-directory validation in `harness/backend/src/main/java/com/openclaw/harness/executors/CommandExecutor.java`
-- [ ] T019 Implement risk classifier for commands and file changes in `harness/backend/src/main/java/com/openclaw/harness/gates/RiskClassifier.java`
-- [ ] T020 Add foundational unit tests for stage ordering and persistence in `harness/backend/src/test/java/com/openclaw/harness/workflow/WorkflowFoundationTest.java`
-- [ ] T021 Add foundational unit tests for command execution and risk classification in `harness/backend/src/test/java/com/openclaw/harness/executors/CommandExecutorTest.java`
+- [x] T008 Create SpecKitStage enum with strict stage order in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitStage.java`
+- [x] T009 Create WorkflowStatus enum in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowStatus.java`
+- [x] T010 [P] Create PhaseStatus enum in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseStatus.java`
+- [x] T011 [P] Create DevelopmentTask record in `harness/backend/src/main/java/com/openclaw/harness/workflow/DevelopmentTask.java`
+- [x] T012 [P] Create PhaseExecution record in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseExecution.java`
+- [x] T013 [P] Create ToolInvocation record in `harness/backend/src/main/java/com/openclaw/harness/executors/ToolInvocation.java`
+- [x] T014 [P] Create RetryAttempt record in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryAttempt.java`
+- [x] T015 [P] Create GitDeliveryRecord record in `harness/backend/src/main/java/com/openclaw/harness/executors/GitDeliveryRecord.java`
+- [x] T016 Implement JSON file persistence helper for runtime artifacts in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowStateStore.java`
+- [x] T017 Implement command result model in `harness/backend/src/main/java/com/openclaw/harness/executors/CommandResult.java`
+- [x] T018 Implement safe command executor with working-directory validation in `harness/backend/src/main/java/com/openclaw/harness/executors/CommandExecutor.java`
+- [x] T019 Implement risk classifier for commands and file changes in `harness/backend/src/main/java/com/openclaw/harness/gates/RiskClassifier.java`
+- [x] T020 Add foundational unit tests for stage ordering and persistence in `harness/backend/src/test/java/com/openclaw/harness/workflow/WorkflowFoundationTest.java`
+- [x] T021 Add foundational unit tests for command execution and risk classification in `harness/backend/src/test/java/com/openclaw/harness/executors/CommandExecutorTest.java`
 
 **Checkpoint**: 基础模型、持久化、命令执行和风险分类可用后，User Story 可按优先级实施。
 
@@ -63,23 +63,23 @@
 
 ### Tests for User Story 1
 
-- [ ] T022 [P] [US1] Add unit tests for strict Spec Kit stage transitions in `harness/backend/src/test/java/com/openclaw/harness/workflow/SpecKitWorkflowServiceTest.java`
-- [ ] T023 [P] [US1] Add recovery tests for checkpoint resume within 30 seconds in `harness/backend/src/test/java/com/openclaw/harness/workflow/WorkflowResumeServiceTest.java`
-- [ ] T024 [P] [US1] Add REST contract tests for workflow start, resume, and phases endpoints in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowControllerTest.java`
-- [ ] T025 [P] [US1] Add CLI contract tests for workflow start and resume outputs in `harness/backend/src/test/java/com/openclaw/harness/cli/WorkflowCliContractTest.java`
+- [x] T022 [P] [US1] Add unit tests for strict Spec Kit stage transitions in `harness/backend/src/test/java/com/openclaw/harness/workflow/SpecKitWorkflowServiceTest.java`
+- [x] T023 [P] [US1] Add recovery tests for checkpoint resume within 30 seconds in `harness/backend/src/test/java/com/openclaw/harness/workflow/WorkflowResumeServiceTest.java`
+- [x] T024 [P] [US1] Add REST contract tests for workflow start, resume, and phases endpoints in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowControllerTest.java`
+- [x] T025 [P] [US1] Add CLI contract tests for workflow start and resume outputs in `harness/backend/src/test/java/com/openclaw/harness/cli/WorkflowCliContractTest.java`
 
 ### Implementation for User Story 1
 
-- [ ] T026 [US1] Implement Spec Kit artifact validator in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitArtifactValidator.java`
-- [ ] T027 [US1] Implement workflow orchestration service in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitWorkflowService.java`
-- [ ] T028 [US1] Implement workflow resume service in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowResumeService.java`
-- [ ] T029 [US1] Implement phase execution persistence integration in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseExecutionRecorder.java`
-- [ ] T030 [US1] Create REST DTOs for workflow operations in `harness/backend/src/main/java/com/openclaw/harness/api/dto/WorkflowRequests.java`
-- [ ] T031 [US1] Create REST DTOs for workflow responses in `harness/backend/src/main/java/com/openclaw/harness/api/dto/WorkflowResponses.java`
-- [ ] T032 [US1] Implement workflow REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowController.java`
-- [ ] T033 [US1] Add workflow command documentation to `harness/backend/docs/cli.md`
-- [ ] T034 [US1] Update README development log for US1 implementation in `README.md`
-- [ ] T035 [US1] Commit US1 implementation to GitHub with message `[harness] 新增：Spec Kit 流水线编排器`
+- [x] T026 [US1] Implement Spec Kit artifact validator in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitArtifactValidator.java`
+- [x] T027 [US1] Implement workflow orchestration service in `harness/backend/src/main/java/com/openclaw/harness/workflow/SpecKitWorkflowService.java`
+- [x] T028 [US1] Implement workflow resume service in `harness/backend/src/main/java/com/openclaw/harness/workflow/WorkflowResumeService.java`
+- [x] T029 [US1] Implement phase execution persistence integration in `harness/backend/src/main/java/com/openclaw/harness/workflow/PhaseExecutionRecorder.java`
+- [x] T030 [US1] Create REST DTOs for workflow operations in `harness/backend/src/main/java/com/openclaw/harness/api/dto/WorkflowRequests.java`
+- [x] T031 [US1] Create REST DTOs for workflow responses in `harness/backend/src/main/java/com/openclaw/harness/api/dto/WorkflowResponses.java`
+- [x] T032 [US1] Implement workflow REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowController.java`
+- [x] T033 [US1] Add workflow command documentation to `harness/backend/docs/cli.md`
+- [x] T034 [US1] Update README development log for US1 implementation in `README.md`
+- [x] T035 [US1] Commit US1 implementation to GitHub with message `[harness] 新增：Spec Kit 流水线编排器`
 
 **Checkpoint**: US1 完成后，Harness 能独立启动、记录、阻断和恢复 Spec Kit 流水线。
 
