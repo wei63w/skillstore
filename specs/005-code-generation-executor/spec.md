@@ -12,6 +12,14 @@
 
 **Spec Kit Workflow Gate**: 本功能 MUST 按顺序执行 `specify` → `clarify` → `checklist` → `plan` → `tasks` → `implement`。本规格由 `specify` 创建；后续必须继续执行 `clarify`、`checklist`、`plan`、`tasks` 和 `implement`。
 
+## Clarifications
+
+### Session 2026-07-07
+
+- 自动生成可运行代码必须接入代码/推理型大模型能力，并且 MUST 支持多家代码大模型供应商；多模态模型不作为本阶段核心依赖，仅预留后续视觉评审或设计稿理解扩展点。
+- 第一版模型调用必须通过统一抽象层完成，禁止业务执行器直接绑定单一供应商 SDK；密钥通过环境变量或配置中心注入，禁止写入仓库。
+- 多模态能力后置为可选 `VisualModelProvider` 类扩展，不阻塞本功能的代码生成、测试失败分析、自动修复和报告摘要能力。
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - 从规格生成受控代码补丁 (Priority: P1)
