@@ -5,8 +5,9 @@ import com.openclaw.harness.generation.GenerationContext;
 import com.openclaw.harness.generation.GenerationContextLoader;
 import com.openclaw.harness.generation.PatchApplyResult;
 import com.openclaw.harness.generation.PatchApplier;
-import com.openclaw.harness.model.CodeModelProviderRegistry;
+import com.openclaw.harness.model.CodeModelProvider;
 import com.openclaw.harness.model.CodeModelRequest;
+import com.openclaw.harness.model.ConfiguredCodeModelProviderRegistry;
 import com.openclaw.harness.model.ModelOutputSchemaValidator;
 import com.openclaw.harness.model.StubCodeModelProvider;
 import com.openclaw.harness.workflow.TaskChecklistItem;
@@ -15,26 +16,30 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CodeGenerationExecutor {
 
-    private final CodeModelProviderRegistry providerRegistry;
+    private final ConfiguredCodeModelProviderRegistry providerRegistry;
     private final GenerationContextLoader contextLoader;
     private final PatchApplier patchApplier;
     private final WorkflowStateStore stateStore;
     private final ModelOutputSchemaValidator schemaValidator;
 
     public CodeGenerationExecutor() {
-        this(new CodeModelProviderRegistry(List.of(new StubCodeModelProvider())),
+        this(new ConfiguredCodeModelProviderRegistry(
+                        new com.openclaw.harness.model.CodeModelProviderRegistry(List.of(new StubCodeModelProvider())),
+                        new com.openclaw.harness.model.ModelProviderSettings()),
                 new GenerationContextLoader(),
                 new PatchApplier(new com.openclaw.harness.generation.PatchPathPolicy(), new com.openclaw.harness.generation.GenerationRiskScanner()),
                 new WorkflowStateStore(),
                 new ModelOutputSchemaValidator());
     }
 
-    public CodeGenerationExecutor(CodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, PatchApplier patchApplier, WorkflowStateStore stateStore, ModelOutputSchemaValidator schemaValidator) {
+    @Autowired
+    public CodeGenerationExecutor(ConfiguredCodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, PatchApplier patchApplier, WorkflowStateStore stateStore, ModelOutputSchemaValidator schemaValidator) {
         this.providerRegistry = providerRegistry;
         this.contextLoader = contextLoader;
         this.patchApplier = patchApplier;

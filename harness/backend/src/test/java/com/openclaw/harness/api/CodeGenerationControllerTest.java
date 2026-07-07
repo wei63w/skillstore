@@ -49,6 +49,32 @@ class CodeGenerationControllerTest {
                 .andExpect(jsonPath("$.data.changedFiles[0]").value("skill-store/README.md"));
     }
 
+    @Test
+    void dryRunWithFakeProviderUsesConfiguredProviderRegistry() throws Exception {
+        Path workspace = Files.createTempDirectory("codegen-api-fake-");
+        Path feature = createFeature(workspace.resolve("specs/demo-codegen-fake"));
+        Files.createDirectories(workspace.resolve("skill-store"));
+        Files.writeString(workspace.resolve("skill-store/README.md"), "# Skill Store\n");
+
+        String body = """
+                {
+                  "requestId":"api-fake-provider",
+                  "taskId":"task-codegen",
+                  "featureDirectory":"%s",
+                  "workspaceRoot":"%s",
+                  "mode":"dry_run",
+                  "modelProvider":"fake"
+                }
+                """.formatted(escape(feature), escape(workspace));
+
+        mockMvc.perform(post("/api/harness/code-generation")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.requestId").value("api-fake-provider"))
+                .andExpect(jsonPath("$.data.blockedReasons").isEmpty());
+    }
+
     private Path createFeature(Path feature) throws Exception {
         Files.createDirectories(feature.resolve("contracts"));
         Files.writeString(feature.resolve("spec.md"), "# Spec\n");

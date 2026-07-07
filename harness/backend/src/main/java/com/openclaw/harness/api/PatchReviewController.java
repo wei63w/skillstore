@@ -5,7 +5,7 @@ import com.openclaw.harness.generation.GenerationContextLoader;
 import com.openclaw.harness.generation.PatchReview;
 import com.openclaw.harness.generation.PatchReviewService;
 import com.openclaw.harness.model.CodeModelRequest;
-import com.openclaw.harness.model.CodeModelProviderRegistry;
+import com.openclaw.harness.model.ConfiguredCodeModelProviderRegistry;
 import com.openclaw.harness.model.ModelOutputSchemaValidator;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PatchReviewController {
 
-    private final CodeModelProviderRegistry providerRegistry;
+    private final ConfiguredCodeModelProviderRegistry providerRegistry;
     private final GenerationContextLoader contextLoader;
     private final ModelOutputSchemaValidator schemaValidator;
     private final PatchReviewService reviewService;
 
-    public PatchReviewController(CodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, ModelOutputSchemaValidator schemaValidator, PatchReviewService reviewService) {
+    public PatchReviewController(ConfiguredCodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, ModelOutputSchemaValidator schemaValidator, PatchReviewService reviewService) {
         this.providerRegistry = providerRegistry;
         this.contextLoader = contextLoader;
         this.schemaValidator = schemaValidator;

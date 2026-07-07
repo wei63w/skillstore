@@ -37,6 +37,21 @@ class PatchReviewControllerTest {
                 .andExpect(jsonPath("$.data.decision").value("APPROVED"));
     }
 
+    @Test
+    void createsPatchReviewWithFakeProvider() throws Exception {
+        Path workspace = Files.createTempDirectory("review-api-fake-");
+        Path feature = createFeature(workspace.resolve("specs/demo-fake"));
+        String body = """
+                {"requestId":"attempt-fake","taskId":"T001","featureDirectory":"%s","workspaceRoot":"%s","modelProvider":"fake"}
+                """.formatted(escape(feature), escape(workspace));
+
+        mockMvc.perform(post("/api/harness/code-generation/reviews")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.decision").value("APPROVED"));
+    }
+
     private Path createFeature(Path feature) throws Exception {
         Files.createDirectories(feature.resolve("contracts"));
         Files.writeString(feature.resolve("spec.md"), "# Spec\n");
