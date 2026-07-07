@@ -33,3 +33,4 @@
 
 - 规格默认采用用户已明确要求的能力范围：真实代码模型 provider、配置占位、模型输出结构校验、补丁 diff 审阅、自动修复循环、端到端流水线、真实 Skill Store 修改、E2E/SAST/依赖扫描、容器构建、部署执行器、权限沙箱和高危审批。
 - 本规格未保留 `[NEEDS CLARIFICATION]` 标记；后续仍需执行 `speckit-clarify` 记录“无阻塞歧义”或补充用户选择。
+- 2026-07-07 implement 前回填说明：用户本轮直接要求 `plan/tasks/implement`，当前规格没有开放澄清问题；本功能按“无阻塞歧义”继续执行，并已在 `plan.md` Complexity Tracking 中记录该流程偏差和后续补齐要求。

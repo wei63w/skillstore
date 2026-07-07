@@ -3,6 +3,7 @@ package com.openclaw.harness.gates;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum RiskLevel {
+    LOW("low"),
     MEDIUM("medium"),
     HIGH("high"),
     CRITICAL("critical");

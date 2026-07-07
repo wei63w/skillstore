@@ -7,6 +7,7 @@ import com.openclaw.harness.generation.PatchApplyResult;
 import com.openclaw.harness.generation.PatchApplier;
 import com.openclaw.harness.model.CodeModelProviderRegistry;
 import com.openclaw.harness.model.CodeModelRequest;
+import com.openclaw.harness.model.ModelOutputSchemaValidator;
 import com.openclaw.harness.model.StubCodeModelProvider;
 import com.openclaw.harness.workflow.TaskChecklistItem;
 import com.openclaw.harness.workflow.WorkflowStateStore;
@@ -23,19 +24,22 @@ public class CodeGenerationExecutor {
     private final GenerationContextLoader contextLoader;
     private final PatchApplier patchApplier;
     private final WorkflowStateStore stateStore;
+    private final ModelOutputSchemaValidator schemaValidator;
 
     public CodeGenerationExecutor() {
         this(new CodeModelProviderRegistry(List.of(new StubCodeModelProvider())),
                 new GenerationContextLoader(),
                 new PatchApplier(new com.openclaw.harness.generation.PatchPathPolicy(), new com.openclaw.harness.generation.GenerationRiskScanner()),
-                new WorkflowStateStore());
+                new WorkflowStateStore(),
+                new ModelOutputSchemaValidator());
     }
 
-    public CodeGenerationExecutor(CodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, PatchApplier patchApplier, WorkflowStateStore stateStore) {
+    public CodeGenerationExecutor(CodeModelProviderRegistry providerRegistry, GenerationContextLoader contextLoader, PatchApplier patchApplier, WorkflowStateStore stateStore, ModelOutputSchemaValidator schemaValidator) {
         this.providerRegistry = providerRegistry;
         this.contextLoader = contextLoader;
         this.patchApplier = patchApplier;
         this.stateStore = stateStore;
+        this.schemaValidator = schemaValidator;
     }
 
     public PatchApplyResult generate(CodeGenerationRequest request) {
@@ -48,6 +52,13 @@ public class CodeGenerationExecutor {
         ));
         if (!response.successful()) {
             return new PatchApplyResult(request.requestId(), request.mode(), false, List.of(), response.blockedReasons(), null);
+        }
+        var validation = schemaValidator.validate(response.patchPlan());
+        if (!validation.valid()) {
+            PatchApplyResult result = new PatchApplyResult(request.requestId(), request.mode(), false, List.of(), validation.errors(),
+                    "harness/runtime/reports/%s-code-generation.json".formatted(request.requestId()));
+            stateStore.write(Path.of(result.reportPath()), result);
+            return result;
         }
         PatchApplyResult result = patchApplier.apply(request, response.patchPlan());
         stateStore.write(Path.of(result.reportPath()), result);

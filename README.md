@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 实现 | Agent Dev Harness | 完成真实模型端到端流水线第一版：新增模型 provider 配置占位、fake HTTP provider、模型输出 Schema 校验、补丁 diff review、pipeline dry-run、自动修复决策、安全扫描计划、Docker build dry-run、部署 dry-run、权限沙箱、审批请求和 REST 入口 | `mvn test` 通过 69 个后端测试；`mvn verify` 通过；`mvn dependency:tree -Dscope=runtime` 通过；真实密钥未写入仓库；部署保持 dry-run/审批 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 任务 | Agent Dev Harness | 为“真实模型驱动 Harness 端到端流水线”生成 `tasks.md`，按 Setup、Foundation、US1 真实模型配置与 diff review、US2 端到端 dry-run pipeline、US3 安全构建部署、US4 沙箱审批和 Polish 拆分 | 任务清单共 60 条；格式校验 0 异常；MVP 为 US1，后续按用户故事增量实现和提交 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 计划 | Agent Dev Harness | 为“真实模型驱动 Harness 端到端流水线”生成技术计划、研究记录、数据模型、API/配置契约和 quickstart，明确真实模型 provider、Schema 校验、diff review、pipeline、sandbox、安全扫描、Docker/部署 dry-run 的实现边界 | `check-prerequisites.ps1 -Json` 通过，识别 `research.md`、`data-model.md`、`contracts/`、`quickstart.md`；计划记录 clarify/checklist 回填要求与宪章复杂度说明 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 规格 | Agent Dev Harness | 创建“真实模型驱动 Harness 端到端流水线”规格，覆盖真实代码模型 provider、配置占位、模型输出结构校验、补丁 diff 审阅、自动修复循环、真实 Skill Store 代码修改、E2E/SAST/依赖扫描、容器构建、部署执行器、权限沙箱和高危审批 | 规格质量清单 18/18 通过；无待澄清标记；等待后续 clarify/checklist/plan/tasks/implement | 随本次提交推送到 `origin/master` |

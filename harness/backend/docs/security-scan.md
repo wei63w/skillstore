@@ -17,3 +17,12 @@
 - 内容安全：`GenerationRiskScannerTest` 覆盖 `.env`、明文密钥和高风险文件目标阻断。
 - 应用安全：`PatchApplierTest` 覆盖 dry-run 不写入和 apply 只写入允许目录。
 - 模型安全边界：第一版仅通过 `CodeModelProvider` 抽象接入代码模型供应商，不在代码中硬编码 API Key、模型密钥或真实服务器地址。
+
+## 2026-07-07 真实模型端到端流水线安全验证
+
+- `mvn dependency:tree -Dscope=runtime`：通过，运行时依赖树可解析。
+- 模型配置：`ModelProviderConfigTest` 覆盖禁止明文密钥，只允许环境变量引用。
+- Schema 安全：`ModelOutputSchemaValidatorTest` 覆盖模型输出必填字段和变更类型校验。
+- 沙箱安全：`SandboxPolicyServiceTest` 覆盖普通文件允许、`.env`/路径穿越拒绝、部署操作进入审批。
+- 部署安全：`DeploymentPlannerTest` 覆盖部署 dry-run 默认需要审批，不自动执行真实远程部署。
+- 说明：本阶段仍未接入外部漏洞数据库型 SAST 插件，已提供 `SecurityScanPlanner` dry-run 命令计划和阻断接口，后续可替换为企业 SAST 或 OWASP Dependency-Check。

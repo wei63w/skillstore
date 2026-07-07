@@ -14,30 +14,30 @@
 
 **Purpose**: 建立 006 实现目录、配置占位和流程证据。
 
-- [ ] T001 Create model config package files in `harness/backend/src/main/java/com/openclaw/harness/model/`
-- [ ] T002 Create pipeline package files in `harness/backend/src/main/java/com/openclaw/harness/pipeline/`
-- [ ] T003 Create sandbox package files in `harness/backend/src/main/java/com/openclaw/harness/sandbox/`
-- [ ] T004 Create security package files in `harness/backend/src/main/java/com/openclaw/harness/security/`
-- [ ] T005 Create deployment package files in `harness/backend/src/main/java/com/openclaw/harness/deployment/`
-- [ ] T006 [P] Add provider placeholder config in `harness/backend/src/main/resources/application-models.example.yml`
-- [ ] T007 [P] Add clarify backfill note in `specs/006-real-harness-pipeline/checklists/requirements.md`
-- [ ] T008 [P] Update provider guide in `harness/backend/docs/model-provider.md`
+- [x] T001 Create model config package files in `harness/backend/src/main/java/com/openclaw/harness/model/`
+- [x] T002 Create pipeline package files in `harness/backend/src/main/java/com/openclaw/harness/pipeline/`
+- [x] T003 Create sandbox package files in `harness/backend/src/main/java/com/openclaw/harness/sandbox/`
+- [x] T004 Create security package files in `harness/backend/src/main/java/com/openclaw/harness/security/`
+- [x] T005 Create deployment package files in `harness/backend/src/main/java/com/openclaw/harness/deployment/`
+- [x] T006 [P] Add provider placeholder config in `harness/backend/src/main/resources/application-models.example.yml`
+- [x] T007 [P] Add clarify backfill note in `specs/006-real-harness-pipeline/checklists/requirements.md`
+- [x] T008 [P] Update provider guide in `harness/backend/docs/model-provider.md`
 
 ## Phase 2: Foundational
 
 **Purpose**: 所有用户故事共享的 Schema、证据、命令和风险基础。
 
-- [ ] T009 [P] Add model provider config tests in `harness/backend/src/test/java/com/openclaw/harness/model/ModelProviderConfigTest.java`
-- [ ] T010 [P] Add model output schema validator tests in `harness/backend/src/test/java/com/openclaw/harness/model/ModelOutputSchemaValidatorTest.java`
-- [ ] T011 [P] Add patch review tests in `harness/backend/src/test/java/com/openclaw/harness/generation/PatchReviewServiceTest.java`
-- [ ] T012 [P] Add sandbox policy tests in `harness/backend/src/test/java/com/openclaw/harness/sandbox/SandboxPolicyServiceTest.java`
-- [ ] T013 Implement `ModelProviderConfig` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelProviderConfig.java`
-- [ ] T014 Implement `ModelProviderSettings` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelProviderSettings.java`
-- [ ] T015 Implement `ModelOutputSchemaValidator` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelOutputSchemaValidator.java`
-- [ ] T016 Implement `PatchReview` records in `harness/backend/src/main/java/com/openclaw/harness/generation/PatchReview.java`
-- [ ] T017 Implement `PatchReviewService` in `harness/backend/src/main/java/com/openclaw/harness/generation/PatchReviewService.java`
-- [ ] T018 Implement `SandboxOperation` and `SandboxDecision` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/`
-- [ ] T019 Implement `SandboxPolicyService` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/SandboxPolicyService.java`
+- [x] T009 [P] Add model provider config tests in `harness/backend/src/test/java/com/openclaw/harness/model/ModelProviderConfigTest.java`
+- [x] T010 [P] Add model output schema validator tests in `harness/backend/src/test/java/com/openclaw/harness/model/ModelOutputSchemaValidatorTest.java`
+- [x] T011 [P] Add patch review tests in `harness/backend/src/test/java/com/openclaw/harness/generation/PatchReviewServiceTest.java`
+- [x] T012 [P] Add sandbox policy tests in `harness/backend/src/test/java/com/openclaw/harness/sandbox/SandboxPolicyServiceTest.java`
+- [x] T013 Implement `ModelProviderConfig` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelProviderConfig.java`
+- [x] T014 Implement `ModelProviderSettings` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelProviderSettings.java`
+- [x] T015 Implement `ModelOutputSchemaValidator` in `harness/backend/src/main/java/com/openclaw/harness/model/ModelOutputSchemaValidator.java`
+- [x] T016 Implement `PatchReview` records in `harness/backend/src/main/java/com/openclaw/harness/generation/PatchReview.java`
+- [x] T017 Implement `PatchReviewService` in `harness/backend/src/main/java/com/openclaw/harness/generation/PatchReviewService.java`
+- [x] T018 Implement `SandboxOperation` and `SandboxDecision` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/`
+- [x] T019 Implement `SandboxPolicyService` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/SandboxPolicyService.java`
 
 ## Phase 3: User Story 1 - 配置真实代码模型并生成可审阅补丁 (Priority: P1) 🎯 MVP
 
@@ -45,14 +45,14 @@
 
 **Independent Test**: 配置启用/禁用 provider 后生成补丁；合法输出进入 review，非法输出被拒绝。
 
-- [ ] T020 [P] [US1] Add provider registry selection tests in `harness/backend/src/test/java/com/openclaw/harness/model/ConfiguredCodeModelProviderRegistryTest.java`
-- [ ] T021 [P] [US1] Add fake real-provider tests in `harness/backend/src/test/java/com/openclaw/harness/model/HttpCodeModelProviderTest.java`
-- [ ] T022 [P] [US1] Add review REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/PatchReviewControllerTest.java`
-- [ ] T023 [US1] Implement `ConfiguredCodeModelProviderRegistry` in `harness/backend/src/main/java/com/openclaw/harness/model/ConfiguredCodeModelProviderRegistry.java`
-- [ ] T024 [US1] Implement `HttpCodeModelProvider` with redacted config handling in `harness/backend/src/main/java/com/openclaw/harness/model/HttpCodeModelProvider.java`
-- [ ] T025 [US1] Extend `CodeGenerationExecutor` to validate schema before apply in `harness/backend/src/main/java/com/openclaw/harness/executors/CodeGenerationExecutor.java`
-- [ ] T026 [US1] Add `PatchReviewController` in `harness/backend/src/main/java/com/openclaw/harness/api/PatchReviewController.java`
-- [ ] T027 [US1] Update README development log and commit US1 with message `[harness] 新增：真实模型供应商配置`
+- [x] T020 [P] [US1] Add provider registry selection tests in `harness/backend/src/test/java/com/openclaw/harness/model/ConfiguredCodeModelProviderRegistryTest.java`
+- [x] T021 [P] [US1] Add fake real-provider tests in `harness/backend/src/test/java/com/openclaw/harness/model/HttpCodeModelProviderTest.java`
+- [x] T022 [P] [US1] Add review REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/PatchReviewControllerTest.java`
+- [x] T023 [US1] Implement `ConfiguredCodeModelProviderRegistry` in `harness/backend/src/main/java/com/openclaw/harness/model/ConfiguredCodeModelProviderRegistry.java`
+- [x] T024 [US1] Implement `HttpCodeModelProvider` with redacted config handling in `harness/backend/src/main/java/com/openclaw/harness/model/HttpCodeModelProvider.java`
+- [x] T025 [US1] Extend `CodeGenerationExecutor` to validate schema before apply in `harness/backend/src/main/java/com/openclaw/harness/executors/CodeGenerationExecutor.java`
+- [x] T026 [US1] Add `PatchReviewController` in `harness/backend/src/main/java/com/openclaw/harness/api/PatchReviewController.java`
+- [x] T027 [US1] Update README development log and commit US1 with message `[harness] 新增：真实模型供应商配置`
 
 ## Phase 4: User Story 2 - 自动生成、测试、修复并提交真实 Skill Store 变更 (Priority: P2)
 
@@ -60,15 +60,15 @@
 
 **Independent Test**: 发起 pipeline dry-run 后生成所有阶段结果和报告；可修复失败最多三轮。
 
-- [ ] T028 [P] [US2] Add pipeline model tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/PipelineRunTest.java`
-- [ ] T029 [P] [US2] Add pipeline service dry-run tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/PipelineServiceTest.java`
-- [ ] T030 [P] [US2] Add repair loop tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/RepairLoopServiceTest.java`
-- [ ] T031 [P] [US2] Add pipeline REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/PipelineControllerTest.java`
-- [ ] T032 [US2] Implement pipeline records in `harness/backend/src/main/java/com/openclaw/harness/pipeline/`
-- [ ] T033 [US2] Implement `RepairLoopService` in `harness/backend/src/main/java/com/openclaw/harness/pipeline/RepairLoopService.java`
-- [ ] T034 [US2] Implement `PipelineService` dry-run orchestration in `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
-- [ ] T035 [US2] Add `PipelineController` in `harness/backend/src/main/java/com/openclaw/harness/api/PipelineController.java`
-- [ ] T036 [US2] Update README development log and commit US2 with message `[harness] 新增：端到端生成流水线`
+- [x] T028 [P] [US2] Add pipeline model tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/PipelineRunTest.java`
+- [x] T029 [P] [US2] Add pipeline service dry-run tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/PipelineServiceTest.java`
+- [x] T030 [P] [US2] Add repair loop tests in `harness/backend/src/test/java/com/openclaw/harness/pipeline/RepairLoopServiceTest.java`
+- [x] T031 [P] [US2] Add pipeline REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/PipelineControllerTest.java`
+- [x] T032 [US2] Implement pipeline records in `harness/backend/src/main/java/com/openclaw/harness/pipeline/`
+- [x] T033 [US2] Implement `RepairLoopService` in `harness/backend/src/main/java/com/openclaw/harness/pipeline/RepairLoopService.java`
+- [x] T034 [US2] Implement `PipelineService` dry-run orchestration in `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
+- [x] T035 [US2] Add `PipelineController` in `harness/backend/src/main/java/com/openclaw/harness/api/PipelineController.java`
+- [x] T036 [US2] Update README development log and commit US2 with message `[harness] 新增：端到端生成流水线`
 
 ## Phase 5: User Story 3 - 引入安全、构建、部署和审批门禁 (Priority: P3)
 
@@ -76,14 +76,14 @@
 
 **Independent Test**: 高危扫描阻断构建；部署操作生成审批或 dry-run 报告。
 
-- [ ] T037 [P] [US3] Add security scan planner tests in `harness/backend/src/test/java/com/openclaw/harness/security/SecurityScanPlannerTest.java`
-- [ ] T038 [P] [US3] Add docker build planner tests in `harness/backend/src/test/java/com/openclaw/harness/deployment/DockerBuildPlannerTest.java`
-- [ ] T039 [P] [US3] Add deployment dry-run tests in `harness/backend/src/test/java/com/openclaw/harness/deployment/DeploymentPlannerTest.java`
-- [ ] T040 [US3] Implement `SecurityScanPlanner` in `harness/backend/src/main/java/com/openclaw/harness/security/SecurityScanPlanner.java`
-- [ ] T041 [US3] Implement `DockerBuildPlanner` in `harness/backend/src/main/java/com/openclaw/harness/deployment/DockerBuildPlanner.java`
-- [ ] T042 [US3] Implement `DeploymentPlanner` and rollback record in `harness/backend/src/main/java/com/openclaw/harness/deployment/`
-- [ ] T043 [US3] Integrate security/build/deploy stages into `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
-- [ ] T044 [US3] Update README development log and commit US3 with message `[harness] 新增：安全构建部署执行器`
+- [x] T037 [P] [US3] Add security scan planner tests in `harness/backend/src/test/java/com/openclaw/harness/security/SecurityScanPlannerTest.java`
+- [x] T038 [P] [US3] Add docker build planner tests in `harness/backend/src/test/java/com/openclaw/harness/deployment/DockerBuildPlannerTest.java`
+- [x] T039 [P] [US3] Add deployment dry-run tests in `harness/backend/src/test/java/com/openclaw/harness/deployment/DeploymentPlannerTest.java`
+- [x] T040 [US3] Implement `SecurityScanPlanner` in `harness/backend/src/main/java/com/openclaw/harness/security/SecurityScanPlanner.java`
+- [x] T041 [US3] Implement `DockerBuildPlanner` in `harness/backend/src/main/java/com/openclaw/harness/deployment/DockerBuildPlanner.java`
+- [x] T042 [US3] Implement `DeploymentPlanner` and rollback record in `harness/backend/src/main/java/com/openclaw/harness/deployment/`
+- [x] T043 [US3] Integrate security/build/deploy stages into `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
+- [x] T044 [US3] Update README development log and commit US3 with message `[harness] 新增：安全构建部署执行器`
 
 ## Phase 6: User Story 4 - 沙箱权限和高危操作审批可观测 (Priority: P4)
 
@@ -91,25 +91,25 @@
 
 **Independent Test**: 普通操作 allow，高危部署 require approval，越界路径 deny。
 
-- [ ] T045 [P] [US4] Add approval request tests in `harness/backend/src/test/java/com/openclaw/harness/sandbox/ApprovalRequestServiceTest.java`
-- [ ] T046 [P] [US4] Add sandbox REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/SandboxControllerTest.java`
-- [ ] T047 [US4] Implement `ApprovalRequest` records in `harness/backend/src/main/java/com/openclaw/harness/sandbox/ApprovalRequest.java`
-- [ ] T048 [US4] Implement `ApprovalRequestService` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/ApprovalRequestService.java`
-- [ ] T049 [US4] Add `SandboxController` in `harness/backend/src/main/java/com/openclaw/harness/api/SandboxController.java`
-- [ ] T050 [US4] Integrate approval decisions into `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
-- [ ] T051 [US4] Update README development log and commit US4 with message `[harness] 新增：权限沙箱与审批门禁`
+- [x] T045 [P] [US4] Add approval request tests in `harness/backend/src/test/java/com/openclaw/harness/sandbox/ApprovalRequestServiceTest.java`
+- [x] T046 [P] [US4] Add sandbox REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/SandboxControllerTest.java`
+- [x] T047 [US4] Implement `ApprovalRequest` records in `harness/backend/src/main/java/com/openclaw/harness/sandbox/ApprovalRequest.java`
+- [x] T048 [US4] Implement `ApprovalRequestService` in `harness/backend/src/main/java/com/openclaw/harness/sandbox/ApprovalRequestService.java`
+- [x] T049 [US4] Add `SandboxController` in `harness/backend/src/main/java/com/openclaw/harness/api/SandboxController.java`
+- [x] T050 [US4] Integrate approval decisions into `harness/backend/src/main/java/com/openclaw/harness/pipeline/PipelineService.java`
+- [x] T051 [US4] Update README development log and commit US4 with message `[harness] 新增：权限沙箱与审批门禁`
 
 ## Phase 7: Polish
 
-- [ ] T052 [P] Update `harness/backend/docs/pipeline-operator-guide.md`
-- [ ] T053 [P] Update `harness/backend/docs/sandbox-policy.md`
-- [ ] T054 [P] Update `harness/backend/docs/deployment-runbook.md`
-- [ ] T055 [P] Run `mvn test` and update `harness/backend/docs/test-coverage.md`
-- [ ] T056 [P] Run `mvn verify` and update `harness/backend/docs/test-coverage.md`
-- [ ] T057 [P] Run `mvn dependency:tree -Dscope=runtime` and update `harness/backend/docs/security-scan.md`
-- [ ] T058 Validate `specs/006-real-harness-pipeline/quickstart.md`
-- [ ] T059 Generate final report in `harness/runtime/reports/006-real-harness-pipeline-report.md`
-- [ ] T060 Commit final validation with message `[harness] 完成：真实流水线验证报告`
+- [x] T052 [P] Update `harness/backend/docs/pipeline-operator-guide.md`
+- [x] T053 [P] Update `harness/backend/docs/sandbox-policy.md`
+- [x] T054 [P] Update `harness/backend/docs/deployment-runbook.md`
+- [x] T055 [P] Run `mvn test` and update `harness/backend/docs/test-coverage.md`
+- [x] T056 [P] Run `mvn verify` and update `harness/backend/docs/test-coverage.md`
+- [x] T057 [P] Run `mvn dependency:tree -Dscope=runtime` and update `harness/backend/docs/security-scan.md`
+- [x] T058 Validate `specs/006-real-harness-pipeline/quickstart.md`
+- [x] T059 Generate final report in `harness/runtime/reports/006-real-harness-pipeline-report.md`
+- [x] T060 Commit final validation with message `[harness] 完成：真实流水线验证报告`
 
 ## Dependencies & Execution Order
 
