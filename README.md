@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 规格 | Agent Dev Harness | 创建“完善 Harness 自主开发能力”规格，覆盖任务编排、Spec Kit 流程执行器、代码生成、测试执行、日志持久化、失败重试、Git 提交和报告生成 | 规格质量清单已通过；无待澄清标记；等待后续 clarify/plan/tasks/implement | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | OpenClaw Skill 商店交易闭环 | 按 Spec Kit 流程新增注册、登录、创作者上传、管理员审核、买家下单、模拟支付和已购授权演示闭环 | `mvn verify` 通过 10 个后端测试；`npm test` 通过 7 个前端测试；`npm run build` 通过；`npm audit --audit-level=high` 零漏洞；未发现真实密钥或真实支付配置 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 治理 | Spec Kit 开发流程 | 将每次开发、修改或修复必须严格执行 `specify → clarify → checklist → plan → tasks → implement` 写入宪章、Spec/Plan/Tasks 模板和 README | 已更新宪章到 v1.2.0；宪章占位符检查无残留；模板已同步 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 文档 | OpenClaw Skill 商店 | 根据已执行的商城骨架实现补齐 `002-init-skill-store` 的 plan、research、data-model、contracts、quickstart 和 tasks，并将已完成任务追溯标记 | `setup-plan.ps1` 与 `setup-tasks.ps1` 可识别当前功能目录和设计产物；占位符检查无残留 | 已提交并推送：`43ae66c` |
