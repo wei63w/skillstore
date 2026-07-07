@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 任务 | Agent Dev Harness | 为“真实模型驱动 Harness 端到端流水线”生成 `tasks.md`，按 Setup、Foundation、US1 真实模型配置与 diff review、US2 端到端 dry-run pipeline、US3 安全构建部署、US4 沙箱审批和 Polish 拆分 | 任务清单共 60 条；格式校验 0 异常；MVP 为 US1，后续按用户故事增量实现和提交 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 计划 | Agent Dev Harness | 为“真实模型驱动 Harness 端到端流水线”生成技术计划、研究记录、数据模型、API/配置契约和 quickstart，明确真实模型 provider、Schema 校验、diff review、pipeline、sandbox、安全扫描、Docker/部署 dry-run 的实现边界 | `check-prerequisites.ps1 -Json` 通过，识别 `research.md`、`data-model.md`、`contracts/`、`quickstart.md`；计划记录 clarify/checklist 回填要求与宪章复杂度说明 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 规格 | Agent Dev Harness | 创建“真实模型驱动 Harness 端到端流水线”规格，覆盖真实代码模型 provider、配置占位、模型输出结构校验、补丁 diff 审阅、自动修复循环、真实 Skill Store 代码修改、E2E/SAST/依赖扫描、容器构建、部署执行器、权限沙箱和高危审批 | 规格质量清单 18/18 通过；无待澄清标记；等待后续 clarify/checklist/plan/tasks/implement | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成 CodeGenerationExecutor 多模型代码生成骨架：新增 `CodeModelProvider` 抽象、供应商注册表、受控 `PatchPlan`、路径白名单、敏感风险扫描、dry-run/apply、测试/文档候选和代码生成报告 | `mvn test` 通过 49 个后端测试；覆盖供应商选择、缺失供应商阻断、上下文加载、补丁计划、路径越界阻断、敏感内容阻断、dry-run 不落盘、apply 受控写入、REST 合约和报告持久化 | 随本次提交推送到 `origin/master` |
