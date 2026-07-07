@@ -1,0 +1,269 @@
+openapi: 3.0.3
+info:
+  title: Agent Dev Harness Automation API
+  version: 0.2.0
+  description: |
+    Agent Dev Harness 自主开发闭环 REST 合约草案，覆盖 Spec Kit 流程编排、
+    阶段记录、测试执行、Git 提交、人工确认和报告查询。
+servers:
+  - url: http://localhost:8080
+    description: 本地开发地址
+paths:
+  /api/harness/workflows:
+    post:
+      summary: 启动自主开发流水线
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartWorkflowRequest"
+      responses:
+        "202":
+          description: 流水线已创建或启动
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkflowResponse"
+        "400":
+          description: 请求参数不合法
+  /api/harness/workflows/{taskId}/resume:
+    post:
+      summary: 从最近成功阶段恢复流水线
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 恢复成功
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResumeResponse"
+        "404":
+          description: 任务不存在
+  /api/harness/workflows/{taskId}/phases:
+    get:
+      summary: 查询阶段执行记录
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 阶段记录列表
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PhaseExecution"
+  /api/harness/workflows/{taskId}/run-tasks:
+    post:
+      summary: 按 tasks.md 执行实现任务
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "202":
+          description: 任务执行已开始
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkflowResponse"
+  /api/harness/workflows/{taskId}/tests:
+    post:
+      summary: 执行测试和质量门禁
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RunTestsRequest"
+      responses:
+        "202":
+          description: 测试执行已开始
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestRunResponse"
+  /api/harness/workflows/{taskId}/git-submit:
+    post:
+      summary: 更新 README、提交本地变更并推送 GitHub
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GitSubmitRequest"
+      responses:
+        "200":
+          description: Git 提交流程完成或明确阻塞
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GitDeliveryRecord"
+  /api/harness/workflows/{taskId}/report:
+    post:
+      summary: 生成最终交付报告
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 报告已生成
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeliveryReport"
+components:
+  schemas:
+    StartWorkflowRequest:
+      type: object
+      required: [objective, workspace]
+      properties:
+        objective:
+          type: string
+          minLength: 1
+        workspace:
+          type: string
+          minLength: 1
+        featureDirectory:
+          type: string
+    WorkflowResponse:
+      type: object
+      required: [taskId, status, currentStage]
+      properties:
+        taskId:
+          type: string
+        status:
+          type: string
+          enum: [created, running, waiting_human, failed, completed, cancelled]
+        currentStage:
+          type: string
+          enum: [specify, clarify, checklist, plan, tasks, implement]
+        checkpointPath:
+          type: string
+    ResumeResponse:
+      type: object
+      required: [taskId, resumedFrom, nextStage, restoreElapsedMs]
+      properties:
+        taskId:
+          type: string
+        resumedFrom:
+          type: string
+        nextStage:
+          type: string
+        restoreElapsedMs:
+          type: integer
+          minimum: 0
+    PhaseExecution:
+      type: object
+      required: [phaseId, taskId, stageKey, status, elapsedMs]
+      properties:
+        phaseId:
+          type: string
+        taskId:
+          type: string
+        stageKey:
+          type: string
+        status:
+          type: string
+          enum: [pending, running, passed, failed, blocked, skipped]
+        outputPaths:
+          type: array
+          items:
+            type: string
+        elapsedMs:
+          type: integer
+          minimum: 0
+        errorSummary:
+          type: string
+    RunTestsRequest:
+      type: object
+      required: [profile]
+      properties:
+        profile:
+          type: string
+          enum: [unit, integration, frontend, build, security, all]
+    TestRunResponse:
+      type: object
+      required: [taskId, status, profile]
+      properties:
+        taskId:
+          type: string
+        profile:
+          type: string
+        status:
+          type: string
+          enum: [running, passed, failed, blocked]
+        retryAttempts:
+          type: integer
+          minimum: 0
+          maximum: 3
+    GitSubmitRequest:
+      type: object
+      required: [commitMessage]
+      properties:
+        commitMessage:
+          type: string
+          pattern: "^\\[[^\\]]+\\] .+：.+$"
+        push:
+          type: boolean
+          default: true
+    GitDeliveryRecord:
+      type: object
+      required: [recordId, taskId, readmeUpdated, pushStatus]
+      properties:
+        recordId:
+          type: string
+        taskId:
+          type: string
+        readmeUpdated:
+          type: boolean
+        commitMessage:
+          type: string
+        commitHash:
+          type: string
+        pushStatus:
+          type: string
+          enum: [not_started, pushed, failed, blocked]
+        blockedReason:
+          type: string
+    DeliveryReport:
+      type: object
+      required: [reportId, taskId, reportPath]
+      properties:
+        reportId:
+          type: string
+        taskId:
+          type: string
+        reportPath:
+          type: string
+        residualRisks:
+          type: array
+          items:
+            type: string
