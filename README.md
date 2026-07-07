@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 修复 | Harness Console | 修复控制台 Provider 下拉为空问题：前端默认 API baseURL 改为 `http://localhost:8080`，避免 5174 静态服务未代理 `/api` 时请求 404，并新增 API baseURL 回归测试 | `npm test` 通过 2 个前端测试；`npm run build` 通过；`http://localhost:8080/api/harness/model-providers` 正常返回 provider 列表 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness / Harness Console | 完成真实模型执行与轻量控制台第一版：新增 DeepSeek/OpenAI/Claude/Codex HTTP provider、provider 状态 API、真实 pipeline 命令阶段、SAST 基础敏感扫描、pipeline list/detail/logs API、Vue 3 三栏控制台、Dockerfile 和 Compose 部署配置 | 后端 `mvn test` / `mvn verify` 通过；前端 `npm test` / `npm run build` 通过；`npm audit --audit-level=high` 0 漏洞；`docker compose config` 通过；未发现用户提供的明文 DeepSeek API Key | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 任务 | Agent Dev Harness / Harness Console | 为“真实模型执行与 Harness Console”生成 `tasks.md`，按 Setup、Foundation、US1 真实模型 provider、US2 真实流水线、安全扫描、US3 Vue 控制台、US4 Compose 部署和最终验证拆分任务 | 任务清单共 65 条；格式包含 checkbox、ID、Story 标签和明确文件路径；MVP 为 US1 真实模型调用与 PatchPlan Schema 校验 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 计划 | Agent Dev Harness / Harness Console | 为“真实模型执行与 Harness Console”生成技术计划、研究记录、数据模型、真实 provider 契约、Console API 契约和 quickstart，明确 DeepSeek/OpenAI/Claude/Codex 协议适配、PatchPlan Schema、真实流水线、SAST/依赖扫描、Vue 控制台和 Compose 部署边界 | `check-prerequisites.ps1 -Json` 通过，识别 `research.md`、`data-model.md`、`contracts/`、`quickstart.md`；规格无待澄清标记，clarify 结论记录为无阻塞项 | 随本次提交推送到 `origin/master` |

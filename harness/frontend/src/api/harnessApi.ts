@@ -39,7 +39,7 @@ type ApiResponse<T> = {
 };
 
 const client = axios.create({
-  baseURL: import.meta.env.VITE_HARNESS_API_BASE ?? '',
+  baseURL: import.meta.env.VITE_HARNESS_API_BASE ?? 'http://localhost:8080',
   timeout: 30000
 });
 
