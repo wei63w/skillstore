@@ -1,0 +1,289 @@
+:root {
+  color: #18202f;
+  background: #f4f6f8;
+  font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+.console-shell {
+  display: grid;
+  grid-template-columns: 300px minmax(360px, 1fr) minmax(340px, 440px);
+  min-height: 100vh;
+  background: #f4f6f8;
+}
+
+.run-list,
+.stage-panel,
+.detail-panel {
+  padding: 20px;
+  border-right: 1px solid #d8dee8;
+  background: #fbfcfe;
+}
+
+.stage-panel {
+  background: #ffffff;
+}
+
+.detail-panel {
+  border-right: 0;
+}
+
+.toolbar,
+.panel-header,
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  margin-top: 4px;
+  font-size: 24px;
+}
+
+.eyebrow {
+  color: #667085;
+  font-size: 13px;
+}
+
+.icon-button,
+.tabs button,
+.primary,
+.run-item,
+.approval-view button {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #18202f;
+  cursor: pointer;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+}
+
+.primary {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #1f6feb;
+  color: #ffffff;
+  border-color: #1f6feb;
+}
+
+.primary:disabled,
+.approval-view button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.field,
+.toggle {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+  color: #344054;
+  font-size: 14px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+}
+
+select {
+  min-height: 38px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0 10px;
+  background: #ffffff;
+}
+
+.provider-hint,
+.empty,
+.error {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #667085;
+  line-height: 1.5;
+}
+
+.error {
+  color: #b42318;
+}
+
+.runs {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.run-item {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+}
+
+.run-item span {
+  color: #667085;
+  font-size: 13px;
+}
+
+.run-item.selected {
+  border-color: #1f6feb;
+  background: #eef5ff;
+}
+
+.status-pill {
+  min-width: 88px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #eef2f6;
+  color: #344054;
+  font-size: 12px;
+  text-align: center;
+}
+
+.stage-list {
+  display: grid;
+  gap: 12px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-row {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.stage-row p {
+  margin-top: 4px;
+  color: #667085;
+  font-size: 13px;
+}
+
+.stage-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #98a2b3;
+}
+
+.stage-dot[data-status="PASSED"] {
+  background: #16803c;
+}
+
+.stage-dot[data-status="FAILED"] {
+  background: #d92d20;
+}
+
+.stage-dot[data-status="WAITING_FOR_APPROVAL"] {
+  background: #d97706;
+}
+
+.stage-dot[data-status="SKIPPED"] {
+  background: #667085;
+}
+
+.center {
+  margin-top: 28px;
+}
+
+.tabs {
+  justify-content: flex-start;
+}
+
+.tabs button {
+  padding: 8px 12px;
+}
+
+.tabs button.active {
+  background: #18202f;
+  color: #ffffff;
+  border-color: #18202f;
+}
+
+.log-view,
+.approval-view,
+.diff-view {
+  margin-top: 18px;
+  min-height: 60vh;
+  border: 1px solid #d8dee8;
+  border-radius: 6px;
+  padding: 14px;
+  background: #ffffff;
+}
+
+.log-view {
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #18202f;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.approval-view,
+.diff-view {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.approval-view button {
+  width: 88px;
+  padding: 8px 10px;
+}
+
+@media (max-width: 1120px) {
+  .console-shell {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .detail-panel {
+    grid-column: 1 / -1;
+    border-top: 1px solid #d8dee8;
+  }
+}
+
+@media (max-width: 760px) {
+  .console-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .run-list,
+  .stage-panel,
+  .detail-panel {
+    border-right: 0;
+    border-bottom: 1px solid #d8dee8;
+  }
+}

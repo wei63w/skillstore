@@ -1,0 +1,30 @@
+services:
+  harness-backend:
+    build:
+      context: ./harness/backend
+    ports:
+      - "${HARNESS_BACKEND_PORT:-8080}:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+      HARNESS_WORKSPACE_ROOT: /workspace
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      CODEX_API_KEY: ${CODEX_API_KEY:-}
+    volumes:
+      - ./harness/runtime:/app/harness/runtime
+      - ./:/workspace:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  harness-frontend:
+    build:
+      context: ./harness/frontend
+    ports:
+      - "${HARNESS_FRONTEND_PORT:-5174}:80"
+    depends_on:
+      harness-backend:
+        condition: service_healthy

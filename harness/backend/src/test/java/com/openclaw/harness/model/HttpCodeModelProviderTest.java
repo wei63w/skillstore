@@ -20,4 +20,18 @@ class HttpCodeModelProviderTest {
         assertThat(response.successful()).isTrue();
         assertThat(response.patchPlan().fileChanges()).isNotEmpty();
     }
+
+    @Test
+    void realProviderWithoutSecretIsBlockedWithoutLeakingValue() {
+        CodeModelResponse response = new HttpCodeModelProvider().generatePatch(new CodeModelRequest(
+                "deepseek",
+                "T002",
+                new GenerationContext("spec", "plan", List.of("- [ ] T002"), List.of("contracts"), List.of()),
+                List.of("不要泄露密钥")
+        ));
+
+        assertThat(response.successful()).isFalse();
+        assertThat(response.blockedReasons()).singleElement().asString().contains("DEEPSEEK_API_KEY");
+        assertThat(response.blockedReasons()).singleElement().asString().doesNotContain("sk-");
+    }
 }

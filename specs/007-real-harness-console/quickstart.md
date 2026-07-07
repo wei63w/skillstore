@@ -18,16 +18,16 @@ curl http://localhost:8080/actuator/health
 仅设置环境变量，不写入仓库文件。
 
 ```bash
-export DEEPSEEK_API_KEY=sk-...
-export OPENAI_API_KEY=sk-...
-export ANTHROPIC_API_KEY=sk-ant-...
-export CODEX_API_KEY=sk-...
+export DEEPSEEK_API_KEY=<your-deepseek-api-key>
+export OPENAI_API_KEY=<your-openai-api-key>
+export ANTHROPIC_API_KEY=<your-anthropic-api-key>
+export CODEX_API_KEY=<your-codex-api-key>
 ```
 
 Windows PowerShell：
 
 ```powershell
-$env:DEEPSEEK_API_KEY="sk-..."
+$env:DEEPSEEK_API_KEY="<your-deepseek-api-key>"
 ```
 
 ## 3. 启动控制台

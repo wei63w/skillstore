@@ -1,6 +1,7 @@
 package com.openclaw.harness.api;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -35,6 +36,10 @@ class PipelineControllerTest {
                 .andExpect(status().isAccepted())
                 .andExpect(jsonPath("$.data.runId").value("run-api"))
                 .andExpect(jsonPath("$.data.status").value("WAITING_FOR_APPROVAL"));
+
+        mockMvc.perform(get("/api/harness/pipelines/run-api")
+                        .param("workspaceRoot", escape(workspace)))
+                .andExpect(status().isOk());
     }
 
     private String escape(Path path) {

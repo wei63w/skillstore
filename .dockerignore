@@ -1,10 +1,7 @@
-.git/
-target/
-build/
-*.log*
-.env
-.env.*
-coverage/
-.idea/
-.vscode/
-node_modules/
+.git
+**/target
+**/node_modules
+**/dist
+harness/runtime
+harness/backend/harness
+**/*.log

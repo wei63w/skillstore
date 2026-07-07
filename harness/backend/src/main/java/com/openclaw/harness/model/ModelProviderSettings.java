@@ -12,8 +12,11 @@ public class ModelProviderSettings {
     public ModelProviderSettings() {
         this(List.of(
                 new ModelProviderConfig("stub", true, 100, "local-stub", "local://stub", "", 30, 0),
-                new ModelProviderConfig("openai", false, 10, "gpt-5-codex", "https://api.openai.com/v1/responses", "OPENAI_API_KEY", 120, 2),
-                new ModelProviderConfig("anthropic", false, 20, "claude-code-model", "https://api.anthropic.com/v1/messages", "ANTHROPIC_API_KEY", 120, 2)
+                new ModelProviderConfig("fake", true, 90, "local-fake-http", "mock://fake", "", 30, 0),
+                new ModelProviderConfig("deepseek", true, 10, "deepseek-v4-pro", "https://api.deepseek.com/chat/completions", "DEEPSEEK_API_KEY", 120, 2),
+                new ModelProviderConfig("openai", true, 20, "gpt-5-codex", "https://api.openai.com/v1/responses", "OPENAI_API_KEY", 120, 2),
+                new ModelProviderConfig("claude", true, 30, "claude-code-model", "https://api.anthropic.com/v1/messages", "ANTHROPIC_API_KEY", 120, 2),
+                new ModelProviderConfig("codex", true, 40, "gpt-5.1-codex-max", "https://api.openai.com/v1/responses", "CODEX_API_KEY", 120, 2)
         ));
     }
 
