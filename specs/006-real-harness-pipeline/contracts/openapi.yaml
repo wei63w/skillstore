@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Agent Dev Harness Real Pipeline API
+  version: 0.1.0
+paths:
+  /api/harness/model-providers:
+    get:
+      summary: List configured model providers
+      responses:
+        '200':
+          description: Configured providers with secret values redacted
+  /api/harness/code-generation/reviews:
+    post:
+      summary: Generate a patch and create a diff review
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRequest'
+      responses:
+        '200':
+          description: Patch review result
+  /api/harness/pipelines:
+    post:
+      summary: Start end-to-end autonomous delivery pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineStartRequest'
+      responses:
+        '202':
+          description: Pipeline accepted
+  /api/harness/pipelines/{runId}:
+    get:
+      summary: Get pipeline run status and stage results
+      parameters:
+        - name: runId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Pipeline status
+  /api/harness/sandbox/evaluate:
+    post:
+      summary: Evaluate an operation against sandbox policy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SandboxEvaluationRequest'
+      responses:
+        '200':
+          description: Sandbox decision
+components:
+  schemas:
+    ReviewRequest:
+      type: object
+      required: [requestId, taskId, featureDirectory, workspaceRoot, modelProvider]
+      properties:
+        requestId:
+          type: string
+        taskId:
+          type: string
+        featureDirectory:
+          type: string
+        workspaceRoot:
+          type: string
+        modelProvider:
+          type: string
+        allowedRoots:
+          type: array
+          items:
+            type: string
+    PipelineStartRequest:
+      type: object
+      required: [runId, featureDirectory, workspaceRoot]
+      properties:
+        runId:
+          type: string
+        featureDirectory:
+          type: string
+        workspaceRoot:
+          type: string
+        modelProvider:
+          type: string
+        dryRun:
+          type: boolean
+    SandboxEvaluationRequest:
+      type: object
+      required: [operationType, target]
+      properties:
+        operationType:
+          type: string
+          enum: [FILE, COMMAND, NETWORK, CREDENTIAL, GIT, BUILD, DEPLOYMENT]
+        target:
+          type: string
+        runId:
+          type: string
