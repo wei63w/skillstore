@@ -126,22 +126,22 @@
 
 ### Tests for User Story 3
 
-- [ ] T053 [P] [US3] Add tool invocation persistence tests in `harness/backend/src/test/java/com/openclaw/harness/observability/ToolInvocationRecorderTest.java`
-- [ ] T054 [P] [US3] Add artifact index tests in `harness/backend/src/test/java/com/openclaw/harness/reports/ArtifactIndexServiceTest.java`
-- [ ] T055 [P] [US3] Add delivery report generation tests in `harness/backend/src/test/java/com/openclaw/harness/reports/DeliveryReportServiceTest.java`
-- [ ] T056 [P] [US3] Add report REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowReportControllerTest.java`
+- [x] T053 [P] [US3] Add tool invocation persistence tests in `harness/backend/src/test/java/com/openclaw/harness/observability/ToolInvocationRecorderTest.java`
+- [x] T054 [P] [US3] Add artifact index tests in `harness/backend/src/test/java/com/openclaw/harness/reports/ArtifactIndexServiceTest.java`
+- [x] T055 [P] [US3] Add delivery report generation tests in `harness/backend/src/test/java/com/openclaw/harness/reports/DeliveryReportServiceTest.java`
+- [x] T056 [P] [US3] Add report REST contract tests in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowReportControllerTest.java`
 
 ### Implementation for User Story 3
 
-- [ ] T057 [US3] Implement tool invocation recorder in `harness/backend/src/main/java/com/openclaw/harness/observability/ToolInvocationRecorder.java`
-- [ ] T058 [US3] Implement code diff summary service in `harness/backend/src/main/java/com/openclaw/harness/observability/CodeDiffSummaryService.java`
-- [ ] T059 [US3] Implement artifact index service in `harness/backend/src/main/java/com/openclaw/harness/reports/ArtifactIndexService.java`
-- [ ] T060 [US3] Extend execution report model for phase, retry, gate, test, scan, and Git summaries in `harness/backend/src/main/java/com/openclaw/harness/reports/DeliveryReport.java`
-- [ ] T061 [US3] Implement delivery report service in `harness/backend/src/main/java/com/openclaw/harness/reports/DeliveryReportService.java`
-- [ ] T062 [US3] Implement workflow report REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowReportController.java`
-- [ ] T063 [US3] Document runtime artifact layout in `harness/backend/docs/runtime-artifacts.md`
-- [ ] T064 [US3] Update README development log for US3 implementation in `README.md`
-- [ ] T065 [US3] Commit US3 implementation to GitHub with message `[harness] 新增：流水线证据与报告生成`
+- [x] T057 [US3] Implement tool invocation recorder in `harness/backend/src/main/java/com/openclaw/harness/observability/ToolInvocationRecorder.java`
+- [x] T058 [US3] Implement code diff summary service in `harness/backend/src/main/java/com/openclaw/harness/observability/CodeDiffSummaryService.java`
+- [x] T059 [US3] Implement artifact index service in `harness/backend/src/main/java/com/openclaw/harness/reports/ArtifactIndexService.java`
+- [x] T060 [US3] Extend execution report model for phase, retry, gate, test, scan, and Git summaries in `harness/backend/src/main/java/com/openclaw/harness/reports/DeliveryReport.java`
+- [x] T061 [US3] Implement delivery report service in `harness/backend/src/main/java/com/openclaw/harness/reports/DeliveryReportService.java`
+- [x] T062 [US3] Implement workflow report REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowReportController.java`
+- [x] T063 [US3] Document runtime artifact layout in `harness/backend/docs/runtime-artifacts.md`
+- [x] T064 [US3] Update README development log for US3 implementation in `README.md`
+- [x] T065 [US3] Commit US3 implementation to GitHub with message `[harness] 新增：流水线证据与报告生成`
 
 **Checkpoint**: US3 完成后，任一流水线都有可回放日志、产物索引和最终报告。
 
