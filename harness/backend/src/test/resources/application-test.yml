@@ -4,3 +4,13 @@ spring:
 harness:
   runtime:
     root: target/harness-runtime-test
+  models:
+    providers:
+      - providerKey: deepseek
+        enabled: false
+        priority: 30
+        modelName: deepseek-v4-pro
+        endpoint: https://api.deepseek.com/chat/completions
+        apiKeyEnv: DEEPSEEK_API_KEY
+        timeoutSeconds: 120
+        maxRetries: 2

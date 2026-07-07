@@ -1,0 +1,35 @@
+harness:
+  models:
+    providers:
+      - providerKey: stub
+        enabled: true
+        priority: 100
+        modelName: local-stub
+        endpoint: local://stub
+        apiKeyEnv: ""
+        timeoutSeconds: 30
+        maxRetries: 0
+      - providerKey: openai
+        enabled: false
+        priority: 10
+        modelName: gpt-5-codex
+        endpoint: https://api.openai.com/v1/responses
+        apiKeyEnv: OPENAI_API_KEY
+        timeoutSeconds: 120
+        maxRetries: 2
+      - providerKey: anthropic
+        enabled: false
+        priority: 20
+        modelName: claude-code-model
+        endpoint: https://api.anthropic.com/v1/messages
+        apiKeyEnv: ANTHROPIC_API_KEY
+        timeoutSeconds: 120
+        maxRetries: 2
+      - providerKey: deepseek
+        enabled: false
+        priority: 30
+        modelName: deepseek-v4-pro
+        endpoint: https://api.deepseek.com/chat/completions
+        apiKeyEnv: DEEPSEEK_API_KEY
+        timeoutSeconds: 120
+        maxRetries: 2
