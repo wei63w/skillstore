@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 实现 | Agent Dev Harness | 完成自主开发能力 US2：新增 `tasks.md` 解析、任务执行计划、受控代码生成、测试 profile 执行映射、三轮重试策略和失败升级人工门禁 | `mvn test` 通过 30 个后端测试；覆盖任务解析、代码生成产物、测试 profile、三轮重试上限、人工门禁升级和 run-tasks REST 合约 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成自主开发能力 US1：新增 Spec Kit 流水线编排、阶段产物校验、checkpoint 持久化、恢复服务、阶段查询 REST API 和 CLI 文档 | `mvn test` 通过 24 个后端测试；覆盖阶段顺序、缺失产物阻断、30 秒内恢复目标、REST start/resume/phases 合约和 CLI 合约 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 任务 | Agent Dev Harness | 为“完善 Harness 自主开发能力”生成 `tasks.md`，按 Setup、Foundation、US1-US4 和最终校验拆分 88 条可执行任务 | 任务格式校验通过；全部任务包含 checkbox、ID、必要 Story 标签和明确文件路径；MVP 范围为 US1 Spec Kit 流水线编排 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 计划 | Agent Dev Harness | 为“完善 Harness 自主开发能力”生成技术实现计划、研究记录、数据模型、CLI/REST 契约和 quickstart 验证指南 | `check-prerequisites.ps1 -Json` 通过，识别 `research.md`、`data-model.md`、`contracts/`、`quickstart.md`；无未解决澄清项；agent context 更新脚本在当前项目中不存在，已按工具现状跳过 | 随本次提交推送到 `origin/master` |

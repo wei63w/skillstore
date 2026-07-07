@@ -93,26 +93,26 @@
 
 ### Tests for User Story 2
 
-- [ ] T036 [P] [US2] Add parser tests for tasks.md checkboxes, dependencies, and parallel markers in `harness/backend/src/test/java/com/openclaw/harness/workflow/TaskChecklistParserTest.java`
-- [ ] T037 [P] [US2] Add code generation executor tests using controlled templates in `harness/backend/src/test/java/com/openclaw/harness/executors/CodeGenerationExecutorTest.java`
-- [ ] T038 [P] [US2] Add test executor tests for unit, integration, build, security, and dependency profiles in `harness/backend/src/test/java/com/openclaw/harness/executors/TestExecutorTest.java`
-- [ ] T039 [P] [US2] Add retry policy tests for three-round limit and human gate escalation in `harness/backend/src/test/java/com/openclaw/harness/retry/RetryPolicyTest.java`
-- [ ] T040 [P] [US2] Add REST contract tests for run-tasks and tests endpoints in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowExecutionControllerTest.java`
+- [x] T036 [P] [US2] Add parser tests for tasks.md checkboxes, dependencies, and parallel markers in `harness/backend/src/test/java/com/openclaw/harness/workflow/TaskChecklistParserTest.java`
+- [x] T037 [P] [US2] Add code generation executor tests using controlled templates in `harness/backend/src/test/java/com/openclaw/harness/executors/CodeGenerationExecutorTest.java`
+- [x] T038 [P] [US2] Add test executor tests for unit, integration, build, security, and dependency profiles in `harness/backend/src/test/java/com/openclaw/harness/executors/TestExecutorTest.java`
+- [x] T039 [P] [US2] Add retry policy tests for three-round limit and human gate escalation in `harness/backend/src/test/java/com/openclaw/harness/retry/RetryPolicyTest.java`
+- [x] T040 [P] [US2] Add REST contract tests for run-tasks and tests endpoints in `harness/backend/src/test/java/com/openclaw/harness/api/WorkflowExecutionControllerTest.java`
 
 ### Implementation for User Story 2
 
-- [ ] T041 [US2] Implement task checklist item model in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskChecklistItem.java`
-- [ ] T042 [US2] Implement tasks.md parser in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskChecklistParser.java`
-- [ ] T043 [US2] Implement task dependency planner in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskExecutionPlanner.java`
-- [ ] T044 [US2] Implement controlled code generation executor in `harness/backend/src/main/java/com/openclaw/harness/executors/CodeGenerationExecutor.java`
-- [ ] T045 [US2] Implement test execution profile enum in `harness/backend/src/main/java/com/openclaw/harness/executors/TestProfile.java`
-- [ ] T046 [US2] Implement test executor command mapping in `harness/backend/src/main/java/com/openclaw/harness/executors/TestExecutor.java`
-- [ ] T047 [US2] Implement retry policy and failure classifier in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryPolicy.java`
-- [ ] T048 [US2] Integrate retry exhaustion with human gates in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryOrchestrator.java`
-- [ ] T049 [US2] Implement workflow execution REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowExecutionController.java`
-- [ ] T050 [US2] Update automation workflow documentation for codegen, tests, and retry in `harness/backend/docs/automation-workflow.md`
-- [ ] T051 [US2] Update README development log for US2 implementation in `README.md`
-- [ ] T052 [US2] Commit US2 implementation to GitHub with message `[harness] 新增：任务执行与失败重试闭环`
+- [x] T041 [US2] Implement task checklist item model in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskChecklistItem.java`
+- [x] T042 [US2] Implement tasks.md parser in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskChecklistParser.java`
+- [x] T043 [US2] Implement task dependency planner in `harness/backend/src/main/java/com/openclaw/harness/workflow/TaskExecutionPlanner.java`
+- [x] T044 [US2] Implement controlled code generation executor in `harness/backend/src/main/java/com/openclaw/harness/executors/CodeGenerationExecutor.java`
+- [x] T045 [US2] Implement test execution profile enum in `harness/backend/src/main/java/com/openclaw/harness/executors/TestProfile.java`
+- [x] T046 [US2] Implement test executor command mapping in `harness/backend/src/main/java/com/openclaw/harness/executors/TestExecutor.java`
+- [x] T047 [US2] Implement retry policy and failure classifier in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryPolicy.java`
+- [x] T048 [US2] Integrate retry exhaustion with human gates in `harness/backend/src/main/java/com/openclaw/harness/retry/RetryOrchestrator.java`
+- [x] T049 [US2] Implement workflow execution REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/WorkflowExecutionController.java`
+- [x] T050 [US2] Update automation workflow documentation for codegen, tests, and retry in `harness/backend/docs/automation-workflow.md`
+- [x] T051 [US2] Update README development log for US2 implementation in `README.md`
+- [x] T052 [US2] Commit US2 implementation to GitHub with message `[harness] 新增：任务执行与失败重试闭环`
 
 **Checkpoint**: US2 完成后，Harness 能从 `tasks.md` 驱动实现、测试和三轮修复闭环。
 
