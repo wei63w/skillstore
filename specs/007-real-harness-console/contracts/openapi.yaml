@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: Agent Dev Harness Console API
+  version: 0.1.0
+  description: 真实模型执行、流水线、日志、审批和控制台接口契约。
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/harness/model-providers:
+    get:
+      summary: 查询模型供应商状态
+      responses:
+        '200':
+          description: Provider 状态列表
+  /api/harness/pipelines:
+    post:
+      summary: 启动 Harness pipeline
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PipelineStartRequest'
+      responses:
+        '200':
+          description: Pipeline run
+    get:
+      summary: 查询 pipeline run 列表
+      responses:
+        '200':
+          description: Run 列表
+  /api/harness/pipelines/{runId}:
+    get:
+      summary: 查询 pipeline run 详情
+      parameters:
+        - name: runId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Run 详情
+        '404':
+          description: Run 不存在
+  /api/harness/pipelines/{runId}/logs:
+    get:
+      summary: 查询 run 日志
+      parameters:
+        - name: runId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 日志文本
+  /api/harness/approvals/{approvalId}/decisions:
+    post:
+      summary: 提交审批决定
+      parameters:
+        - name: approvalId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApprovalDecisionRequest'
+      responses:
+        '200':
+          description: 审批结果
+components:
+  schemas:
+    PipelineStartRequest:
+      type: object
+      required: [featureKey, providerKey]
+      properties:
+        featureKey:
+          type: string
+          example: 007-real-harness-console
+        providerKey:
+          type: string
+          example: deepseek
+        targetProject:
+          type: string
+          example: skill-store
+        dryRun:
+          type: boolean
+          default: true
+        autoApply:
+          type: boolean
+          default: false
+    ApprovalDecisionRequest:
+      type: object
+      required: [approved, reason]
+      properties:
+        approved:
+          type: boolean
+        reason:
+          type: string
+        decisionBy:
+          type: string
+          default: local-user
