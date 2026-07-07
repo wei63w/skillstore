@@ -41,10 +41,10 @@ public class ModelOutputSchemaValidator {
         requireText(change.path(), "fileChanges.path", errors);
         requireText(change.changeType(), "fileChanges.changeType", errors);
         requireText(change.taskId(), "fileChanges.taskId", errors);
-        if (!List.of("create", "modify", "delete").contains(change.changeType())) {
+        if (!List.of("add", "create", "modify", "delete").contains(change.changeType().toLowerCase())) {
             errors.add("不支持的 changeType: " + change.changeType());
         }
-        if (!"delete".equals(change.changeType()) && (change.content() == null || change.content().isBlank())) {
+        if (!"delete".equalsIgnoreCase(change.changeType()) && (change.content() == null || change.content().isBlank())) {
             errors.add("非删除变更必须包含 content: " + change.path());
         }
     }

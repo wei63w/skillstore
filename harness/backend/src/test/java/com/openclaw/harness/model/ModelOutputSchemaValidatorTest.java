@@ -22,6 +22,24 @@ class ModelOutputSchemaValidatorTest {
     }
 
     @Test
+    void acceptsAddAliasFromModelOutput() {
+        PatchPlan plan = new PatchPlan("p", "T001", "summary",
+                List.of(new FileChange("skill-store/README.md", "ADD", "hello", "T001", "reason")),
+                RiskLevel.LOW, List.of("spec.md"));
+
+        assertThat(validator.validate(plan).valid()).isTrue();
+    }
+
+    @Test
+    void allowsDeleteWithoutContent() {
+        PatchPlan plan = new PatchPlan("p", "T001", "summary",
+                List.of(new FileChange("skill-store/README.md", "delete", null, "T001", "reason")),
+                RiskLevel.LOW, List.of("spec.md"));
+
+        assertThat(validator.validate(plan).valid()).isTrue();
+    }
+
+    @Test
     void rejectsMissingFileChanges() {
         PatchPlan plan = new PatchPlan("p", "T001", "summary", List.of(), RiskLevel.LOW, List.of("spec.md"));
 

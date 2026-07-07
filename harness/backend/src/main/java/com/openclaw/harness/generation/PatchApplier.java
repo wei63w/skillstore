@@ -32,10 +32,14 @@ public class PatchApplier {
         try {
             for (FileChange change : plan.fileChanges()) {
                 Path target = request.workspaceRoot().resolve(change.path()).normalize();
-                Files.createDirectories(target.getParent());
-                if ("modify".equalsIgnoreCase(change.changeType()) && Files.exists(target)) {
+                String changeType = change.changeType().toLowerCase();
+                if ("delete".equals(changeType)) {
+                    Files.deleteIfExists(target);
+                } else if ("modify".equals(changeType) && Files.exists(target)) {
+                    Files.createDirectories(target.getParent());
                     Files.writeString(target, Files.readString(target) + change.content());
                 } else {
+                    Files.createDirectories(target.getParent());
                     Files.writeString(target, change.content());
                 }
             }
