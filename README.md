@@ -122,6 +122,7 @@ npm audit --audit-level=high
 
 | 日期 | 类型 | 范围 | 说明 | 验证结果 | GitHub 状态 |
 |------|------|------|------|----------|-------------|
+| 2026-07-07 | 规格 | Agent Dev Harness / Harness Console | 创建“真实模型执行与 Harness Console”规格，覆盖 DeepSeek/OpenAI/Claude/Codex 真实调用、真实流水线执行、真实 SAST/漏洞扫描、Vue 3 控制台三栏界面和 Docker Compose 前后端部署 | 规格质量清单 18/18 通过；无待澄清标记；等待后续 clarify/checklist/plan/tasks/implement | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 修改 | Agent Dev Harness | 为测试配置增加 DeepSeek 模型 provider 占位，按官方文档使用 `deepseek-v4-pro`、`https://api.deepseek.com/chat/completions` 和 `DEEPSEEK_API_KEY` 环境变量引用；未写入明文 API Key | `mvn test` 通过 69 个后端测试；仓库扫描未发现用户提供的明文 key；配置仅保存环境变量名 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 实现 | Agent Dev Harness | 完成真实模型端到端流水线第一版：新增模型 provider 配置占位、fake HTTP provider、模型输出 Schema 校验、补丁 diff review、pipeline dry-run、自动修复决策、安全扫描计划、Docker build dry-run、部署 dry-run、权限沙箱、审批请求和 REST 入口 | `mvn test` 通过 69 个后端测试；`mvn verify` 通过；`mvn dependency:tree -Dscope=runtime` 通过；真实密钥未写入仓库；部署保持 dry-run/审批 | 随本次提交推送到 `origin/master` |
 | 2026-07-07 | 任务 | Agent Dev Harness | 为“真实模型驱动 Harness 端到端流水线”生成 `tasks.md`，按 Setup、Foundation、US1 真实模型配置与 diff review、US2 端到端 dry-run pipeline、US3 安全构建部署、US4 沙箱审批和 Polish 拆分 | 任务清单共 60 条；格式校验 0 异常；MVP 为 US1，后续按用户故事增量实现和提交 | 随本次提交推送到 `origin/master` |
