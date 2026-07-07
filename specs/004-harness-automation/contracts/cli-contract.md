@@ -108,6 +108,7 @@ harness report generate --task-id "<任务ID>"
 - 提交前检查用户未提交变更、密钥和高风险配置。
 - 提交信息必须符合 `[模块] 动作：内容`。
 - 推送失败时记录阻塞原因和本地提交哈希。
+- 支持受控环境下使用 `--push false` 只创建本地提交并记录 `not_started` 推送状态，用于测试和演示。
 
 ## `harness report generate`
 

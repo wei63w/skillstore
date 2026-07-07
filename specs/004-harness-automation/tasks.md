@@ -155,21 +155,21 @@
 
 ### Tests for User Story 4
 
-- [ ] T066 [P] [US4] Add README development log updater tests in `harness/backend/src/test/java/com/openclaw/harness/executors/ReadmeDevelopmentLogUpdaterTest.java`
-- [ ] T067 [P] [US4] Add secret and high-risk config scan tests in `harness/backend/src/test/java/com/openclaw/harness/executors/PreCommitRiskScannerTest.java`
-- [ ] T068 [P] [US4] Add Git submit executor tests with a temporary repository in `harness/backend/src/test/java/com/openclaw/harness/executors/GitSubmitExecutorTest.java`
-- [ ] T069 [P] [US4] Add REST contract tests for git-submit endpoint in `harness/backend/src/test/java/com/openclaw/harness/api/GitSubmitControllerTest.java`
+- [x] T066 [P] [US4] Add README development log updater tests in `harness/backend/src/test/java/com/openclaw/harness/executors/ReadmeDevelopmentLogUpdaterTest.java`
+- [x] T067 [P] [US4] Add secret and high-risk config scan tests in `harness/backend/src/test/java/com/openclaw/harness/executors/PreCommitRiskScannerTest.java`
+- [x] T068 [P] [US4] Add Git submit executor tests with a temporary repository in `harness/backend/src/test/java/com/openclaw/harness/executors/GitSubmitExecutorTest.java`
+- [x] T069 [P] [US4] Add REST contract tests for git-submit endpoint in `harness/backend/src/test/java/com/openclaw/harness/api/GitSubmitControllerTest.java`
 
 ### Implementation for User Story 4
 
-- [ ] T070 [US4] Implement README development log updater in `harness/backend/src/main/java/com/openclaw/harness/executors/ReadmeDevelopmentLogUpdater.java`
-- [ ] T071 [US4] Implement pre-commit risk scanner in `harness/backend/src/main/java/com/openclaw/harness/executors/PreCommitRiskScanner.java`
-- [ ] T072 [US4] Implement commit message validator in `harness/backend/src/main/java/com/openclaw/harness/executors/CommitMessageValidator.java`
-- [ ] T073 [US4] Implement Git submit executor in `harness/backend/src/main/java/com/openclaw/harness/executors/GitSubmitExecutor.java`
-- [ ] T074 [US4] Implement Git submit REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/GitSubmitController.java`
-- [ ] T075 [US4] Update CLI contract documentation for git submit behavior in `specs/004-harness-automation/contracts/cli-contract.md`
-- [ ] T076 [US4] Update README development log for US4 implementation in `README.md`
-- [ ] T077 [US4] Commit US4 implementation to GitHub with message `[harness] 新增：README 与 GitHub 交付证据`
+- [x] T070 [US4] Implement README development log updater in `harness/backend/src/main/java/com/openclaw/harness/executors/ReadmeDevelopmentLogUpdater.java`
+- [x] T071 [US4] Implement pre-commit risk scanner in `harness/backend/src/main/java/com/openclaw/harness/executors/PreCommitRiskScanner.java`
+- [x] T072 [US4] Implement commit message validator in `harness/backend/src/main/java/com/openclaw/harness/executors/CommitMessageValidator.java`
+- [x] T073 [US4] Implement Git submit executor in `harness/backend/src/main/java/com/openclaw/harness/executors/GitSubmitExecutor.java`
+- [x] T074 [US4] Implement Git submit REST controller in `harness/backend/src/main/java/com/openclaw/harness/api/GitSubmitController.java`
+- [x] T075 [US4] Update CLI contract documentation for git submit behavior in `specs/004-harness-automation/contracts/cli-contract.md`
+- [x] T076 [US4] Update README development log for US4 implementation in `README.md`
+- [x] T077 [US4] Commit US4 implementation to GitHub with message `[harness] 新增：README 与 GitHub 交付证据`
 
 **Checkpoint**: US4 完成后，Harness 能把验证通过的小功能转化为 README 和 GitHub 证据。
 
